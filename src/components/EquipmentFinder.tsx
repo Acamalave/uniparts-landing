@@ -1,34 +1,41 @@
 "use client";
 import { useState } from "react";
+import {
+  IconForklift, IconStacker, IconPallet, IconGear,
+  IconWarehouse, IconOutdoor, IconNarrowAisle, IconHeavyLoad,
+  IconWeightSm, IconWeightMd, IconWeightLg, IconQuestion,
+} from "@/components/Icons";
 
 const whatsappNumber = "584147006020";
+
+const iconClass = "w-8 h-8";
 
 const steps = [
   {
     question: "Que tipo de equipo necesitas?",
     options: [
-      { label: "Montacargas", icon: "🏗️", value: "montacargas" },
-      { label: "Apilador", icon: "📦", value: "apilador" },
-      { label: "Transpaleta", icon: "🔄", value: "transpaleta" },
-      { label: "Repuestos / Cauchos", icon: "⚙️", value: "repuestos" },
+      { label: "Montacargas", icon: <IconForklift className={iconClass} />, value: "montacargas" },
+      { label: "Apilador", icon: <IconStacker className={iconClass} />, value: "apilador" },
+      { label: "Transpaleta", icon: <IconPallet className={iconClass} />, value: "transpaleta" },
+      { label: "Repuestos / Cauchos", icon: <IconGear className={iconClass} />, value: "repuestos" },
     ],
   },
   {
     question: "Para que tipo de operacion?",
     options: [
-      { label: "Almacen / Interior", icon: "🏭", value: "almacen" },
-      { label: "Exterior / Patio", icon: "🌤️", value: "exterior" },
-      { label: "Pasillo angosto", icon: "📐", value: "pasillo-angosto" },
-      { label: "Carga pesada", icon: "💪", value: "carga-pesada" },
+      { label: "Almacen / Interior", icon: <IconWarehouse className={iconClass} />, value: "almacen" },
+      { label: "Exterior / Patio", icon: <IconOutdoor className={iconClass} />, value: "exterior" },
+      { label: "Pasillo angosto", icon: <IconNarrowAisle className={iconClass} />, value: "pasillo-angosto" },
+      { label: "Carga pesada", icon: <IconHeavyLoad className={iconClass} />, value: "carga-pesada" },
     ],
   },
   {
     question: "Que capacidad de carga requieres?",
     options: [
-      { label: "Hasta 2 toneladas", icon: "1️⃣", value: "hasta-2t" },
-      { label: "2 a 5 toneladas", icon: "2️⃣", value: "2-5t" },
-      { label: "Mas de 5 toneladas", icon: "3️⃣", value: "mas-5t" },
-      { label: "No estoy seguro", icon: "❓", value: "no-seguro" },
+      { label: "Hasta 2 toneladas", icon: <IconWeightSm className={iconClass} />, value: "hasta-2t" },
+      { label: "2 a 5 toneladas", icon: <IconWeightMd className={iconClass} />, value: "2-5t" },
+      { label: "Mas de 5 toneladas", icon: <IconWeightLg className={iconClass} />, value: "mas-5t" },
+      { label: "No estoy seguro", icon: <IconQuestion className={iconClass} />, value: "no-seguro" },
     ],
   },
 ];
@@ -133,7 +140,7 @@ export default function EquipmentFinder() {
                     onClick={() => handleSelect(option.value)}
                     className="group flex flex-col items-center gap-3 p-6 rounded-xl border-2 border-gray-200 hover:border-brand-orange hover:bg-brand-orange/5 transition-all text-center"
                   >
-                    <span className="text-3xl">{option.icon}</span>
+                    <span className="text-brand-orange group-hover:scale-110 transition-transform">{option.icon}</span>
                     <span className="font-semibold text-brand-dark group-hover:text-brand-orange transition-colors">
                       {option.label}
                     </span>

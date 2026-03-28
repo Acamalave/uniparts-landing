@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { IconForklift, IconGear, IconWrench } from "@/components/Icons";
 
 const whatsappNumber = "584147006020";
 
@@ -7,17 +8,17 @@ const departments = [
   {
     label: "Ventas de Equipos",
     msg: "Hola, estoy interesado en comprar un equipo",
-    icon: "🏗️",
+    icon: <IconForklift className="w-5 h-5" />,
   },
   {
     label: "Repuestos y Cauchos",
     msg: "Hola, necesito cotizar repuestos",
-    icon: "⚙️",
+    icon: <IconGear className="w-5 h-5" />,
   },
   {
     label: "Servicio Tecnico",
     msg: "Hola, necesito servicio tecnico para mi montacargas",
-    icon: "🔧",
+    icon: <IconWrench className="w-5 h-5" />,
   },
 ];
 
@@ -44,7 +45,7 @@ export default function WhatsAppFloat() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition-colors"
               >
-                <span className="text-xl">{dept.icon}</span>
+                <span className="text-brand-orange shrink-0">{dept.icon}</span>
                 <div>
                   <p className="font-semibold text-sm text-brand-dark">
                     {dept.label}

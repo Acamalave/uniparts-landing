@@ -1,10 +1,11 @@
 "use client";
+import { IconCrane, IconHandshake, IconClock, IconMap } from "@/components/Icons";
 
 const stats = [
-  { number: "500+", label: "Equipos vendidos", icon: "🏗️" },
-  { number: "200+", label: "Clientes activos", icon: "🤝" },
-  { number: "24h", label: "Tiempo de respuesta", icon: "⏱️" },
-  { number: "100%", label: "Cobertura nacional", icon: "🇻🇪" },
+  { number: "500+", label: "Equipos vendidos", icon: <IconCrane className="w-7 h-7 mx-auto" /> },
+  { number: "200+", label: "Clientes activos", icon: <IconHandshake className="w-7 h-7 mx-auto" /> },
+  { number: "24h", label: "Tiempo de respuesta", icon: <IconClock className="w-7 h-7 mx-auto" /> },
+  { number: "100%", label: "Cobertura nacional", icon: <IconMap className="w-7 h-7 mx-auto" /> },
 ];
 
 const reasons = [
@@ -41,7 +42,7 @@ export default function WhyUs() {
               key={i}
               className="text-center p-6 rounded-2xl bg-brand-gray-light"
             >
-              <span className="text-3xl mb-2 block">{stat.icon}</span>
+              <span className="mb-2 block text-brand-orange">{stat.icon}</span>
               <p className="text-3xl sm:text-4xl font-black text-brand-orange">
                 {stat.number}
               </p>

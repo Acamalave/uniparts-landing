@@ -1,4 +1,5 @@
 "use client";
+import { IconTire, IconBattery, IconHydraulic, IconEngine, IconElectric, IconChain } from "@/components/Icons";
 
 const whatsappNumber = "584147006020";
 
@@ -6,37 +7,37 @@ const categories = [
   {
     name: "Cauchos Solidos",
     description: "Alta duracion para todo tipo de montacargas",
-    icon: "⚫",
+    icon: <IconTire className="w-7 h-7" />,
     msg: "Hola, necesito cotizar cauchos solidos para montacargas",
   },
   {
     name: "Baterias de Litio",
     description: "Tecnologia de ultima generacion",
-    icon: "🔋",
+    icon: <IconBattery className="w-7 h-7" />,
     msg: "Hola, necesito cotizar baterias de litio para montacargas",
   },
   {
     name: "Sistema Hidraulico",
     description: "Bombas, cilindros, mangueras y sellos",
-    icon: "💧",
+    icon: <IconHydraulic className="w-7 h-7" />,
     msg: "Hola, necesito repuestos del sistema hidraulico",
   },
   {
     name: "Motor y Transmision",
     description: "Repuestos originales y alternativos",
-    icon: "⚙️",
+    icon: <IconEngine className="w-7 h-7" />,
     msg: "Hola, necesito repuestos de motor y transmision",
   },
   {
     name: "Sistema Electrico",
     description: "Contactores, cables, controladores",
-    icon: "⚡",
+    icon: <IconElectric className="w-7 h-7" />,
     msg: "Hola, necesito repuestos del sistema electrico",
   },
   {
     name: "Cadenas y Rodillos",
     description: "Para mastiles y sistemas de elevacion",
-    icon: "🔗",
+    icon: <IconChain className="w-7 h-7" />,
     msg: "Hola, necesito cadenas y rodillos para montacargas",
   },
 ];
@@ -67,7 +68,7 @@ export default function Repuestos() {
               rel="noopener noreferrer"
               className="group flex items-start gap-4 bg-white p-6 rounded-xl border border-gray-100 hover:border-brand-orange/30 hover:shadow-lg transition-all"
             >
-              <span className="text-3xl shrink-0">{cat.icon}</span>
+              <span className="shrink-0 text-brand-orange">{cat.icon}</span>
               <div>
                 <h3 className="font-bold text-brand-dark group-hover:text-brand-orange transition-colors">
                   {cat.name}

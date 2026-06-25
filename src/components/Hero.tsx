@@ -1,6 +1,6 @@
 "use client";
 
-const whatsappNumber = "584147006020";
+const whatsappNumber = "584144025540";
 
 export default function Hero() {
   return (
@@ -23,17 +23,20 @@ export default function Hero() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-brand-orange/20 border border-brand-orange/30 text-brand-orange px-4 py-1.5 rounded-full text-sm font-medium mb-6 animate-fade-in-up">
             <span className="w-2 h-2 bg-brand-orange rounded-full animate-pulse" />
-            Distribuidor autorizado Unilift en Venezuela
+            Equipos nuevos y usados en toda Venezuela
           </div>
 
           {/* Main headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-tight mb-6 animate-fade-in-up">
-            Tu operacion{" "}
-            <span className="text-brand-orange">no puede parar</span>
+            Montacargas de litio y combustión y{" "}
+            <span className="text-brand-orange">
+              repuestos de alta calidad
+            </span>{" "}
+            para todas las marcas.
           </h1>
 
           <p className="text-lg sm:text-xl text-white/70 mb-10 leading-relaxed max-w-xl animate-fade-in-up">
-            Montacargas de litio, repuestos originales y servicio tecnico
+            Montacargas de litio, repuestos originales y servicio técnico
             especializado en toda Venezuela.
           </p>
 
@@ -59,7 +62,7 @@ export default function Hero() {
               Necesito Repuestos
             </a>
             <a
-              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hola, necesito asesoria tecnica para mi operacion")}`}
+              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hola, necesito asesoría técnica para mi operación")}`}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#25D366] hover:bg-[#1fb855] text-white font-semibold px-8 py-4 rounded-xl text-base transition-all flex items-center justify-center gap-2"
@@ -83,13 +86,7 @@ export default function Hero() {
               <svg className="w-5 h-5 text-brand-orange" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
               </svg>
-              Servicio tecnico nacional
-            </div>
-            <div className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-brand-orange" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-              </svg>
-              Tecnologia de litio
+              Tecnología de litio
             </div>
           </div>
         </div>

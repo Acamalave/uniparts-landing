@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
-const whatsappNumber = "584147006020";
+const whatsappNumber = "584144025540";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);

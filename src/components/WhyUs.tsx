@@ -10,24 +10,19 @@ const stats = [
 
 const reasons = [
   {
-    title: "Distribuidor autorizado Unilift",
-    description:
-      "Somos el distribuidor oficial en Venezuela de la marca Unilift, garantizando equipos originales con respaldo directo de fabrica.",
-  },
-  {
-    title: "Servicio tecnico especializado",
-    description:
-      "Equipo de tecnicos capacitados para mantenimiento preventivo y correctivo. Soporte en toda Venezuela.",
-  },
-  {
     title: "Stock de repuestos permanente",
     description:
       "Amplio inventario de repuestos originales y alternativos listos para despacho inmediato.",
   },
   {
-    title: "Tecnologia de litio",
+    title: "Tecnología de litio",
     description:
-      "Equipos de ultima generacion con baterias de litio: carga rapida, mayor duracion y cero mantenimiento de bateria.",
+      "Equipos de última generación con baterías de litio: carga rápida, mayor duración y cero mantenimiento de batería.",
+  },
+  {
+    title: "Equipos de combustión usados",
+    description:
+      "Diversas marcas, tipos de trabajo y capacidades, listos para la venta.",
   },
 ];
 
@@ -57,10 +52,10 @@ export default function WhyUs() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <span className="text-brand-orange font-semibold text-sm uppercase tracking-widest">
-              Por que elegirnos
+              Por qué elegirnos
             </span>
             <h2 className="text-3xl sm:text-4xl font-black text-brand-dark mt-2 mb-8">
-              Tu aliado en logistica e{" "}
+              Tu aliado en logística e{" "}
               <span className="text-brand-orange">industria</span>
             </h2>
 
@@ -89,18 +84,18 @@ export default function WhyUs() {
 
           {/* Image / Visual */}
           <div className="relative">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden">
+            <div className="aspect-[4/5] rounded-2xl overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80"
-                alt="Equipo de trabajo Uniparts Andina"
+                src="/equipo-combustion.jpg"
+                alt="Montacargas de combustión usado disponible en Uniparts Andina"
                 className="w-full h-full object-cover"
               />
             </div>
             {/* Floating card */}
-            <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-5 max-w-[220px]">
-              <p className="text-brand-orange text-3xl font-black">Unilift</p>
+            <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-5 max-w-[240px]">
+              <p className="text-brand-orange text-3xl font-black">Multimarca</p>
               <p className="text-sm text-gray-500 mt-1">
-                Distribuidor oficial en Venezuela
+                Equipos de combustión usados, listos para la venta
               </p>
             </div>
           </div>
@@ -109,15 +104,15 @@ export default function WhyUs() {
         {/* Industries served */}
         <div className="mt-20 text-center">
           <p className="text-gray-400 text-sm font-medium uppercase tracking-widest mb-8">
-            Industrias que confian en nosotros
+            Industrias que confían en nosotros
           </p>
           <div className="flex flex-wrap justify-center gap-8 text-gray-400">
             {[
               "Manufactura",
-              "Logistica",
+              "Logística",
               "Alimentos",
-              "Construccion",
-              "Farmaceutica",
+              "Construcción",
+              "Farmacéutica",
               "Automotriz",
             ].map((industry) => (
               <span

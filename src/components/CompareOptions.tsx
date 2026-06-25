@@ -1,6 +1,6 @@
 "use client";
 
-const whatsappNumber = "584147006020";
+const whatsappNumber = "584144025540";
 
 const options = [
   {
@@ -10,14 +10,14 @@ const options = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
-    description: "Adquiere tu equipo nuevo con garantia completa Unilift",
+    description: "Adquiere tu equipo nuevo con garantía completa de fábrica",
     features: [
       "Equipo 100% tuyo",
-      "Garantia de fabrica",
-      "Soporte tecnico incluido",
+      "Garantía de fábrica",
+      "Soporte técnico incluido",
       "Repuestos garantizados",
     ],
-    ideal: "Uso continuo, +3 anos",
+    ideal: "Uso continuo, +3 años",
     cta: "Cotizar compra",
     ctaMsg: "Hola, quiero cotizar la compra de un montacargas nuevo",
     highlight: true,
@@ -31,7 +31,7 @@ const options = [
     ),
     description: "Equipo listo cuando lo necesites, sin compromiso a largo plazo",
     features: [
-      "Sin inversion inicial alta",
+      "Sin inversión inicial alta",
       "Mantenimiento incluido",
       "Reemplazo inmediato",
       "Ideal para temporadas altas",
@@ -39,25 +39,6 @@ const options = [
     ideal: "Proyectos puntuales",
     cta: "Cotizar alquiler",
     ctaMsg: "Hola, necesito cotizar el alquiler de un montacargas",
-    highlight: false,
-  },
-  {
-    title: "Leasing",
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-      </svg>
-    ),
-    description: "Cuotas flexibles con opcion de compra al final del contrato",
-    features: [
-      "Cuotas mensuales fijas",
-      "Beneficio fiscal",
-      "Opcion de compra",
-      "Actualizacion de flota",
-    ],
-    ideal: "Flexibilidad financiera",
-    cta: "Consultar opciones",
-    ctaMsg: "Hola, me interesa conocer las opciones de leasing para montacargas",
     highlight: false,
   },
 ];
@@ -71,14 +52,14 @@ export default function CompareOptions() {
             Opciones flexibles
           </span>
           <h2 className="text-3xl sm:text-4xl font-black text-white mt-2">
-            Compra, alquila o leasing
+            Compra o alquila
           </h2>
           <p className="text-white/50 mt-3 max-w-lg mx-auto">
-            Elige la modalidad que mejor se adapte a tu operacion y presupuesto
+            Elige la modalidad que mejor se adapte a tu operación y presupuesto
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
           {options.map((option, i) => (
             <div
               key={i}
@@ -90,7 +71,7 @@ export default function CompareOptions() {
             >
               {option.highlight && (
                 <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-brand-orange text-xs font-bold px-4 py-1 rounded-full">
-                  MAS POPULAR
+                  MÁS POPULAR
                 </span>
               )}
 

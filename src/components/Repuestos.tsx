@@ -1,42 +1,42 @@
 "use client";
 import { IconTire, IconBattery, IconHydraulic, IconEngine, IconElectric, IconChain } from "@/components/Icons";
 
-const whatsappNumber = "584147006020";
+const whatsappNumber = "584144025540";
 
 const categories = [
   {
-    name: "Cauchos Solidos",
-    description: "Alta duracion para todo tipo de montacargas",
+    name: "Cauchos Sólidos",
+    description: "Alta duración para todo tipo de montacargas",
     icon: <IconTire className="w-7 h-7" />,
-    msg: "Hola, necesito cotizar cauchos solidos para montacargas",
+    msg: "Hola, necesito cotizar cauchos sólidos para montacargas",
   },
   {
-    name: "Baterias de Litio",
-    description: "Tecnologia de ultima generacion",
+    name: "Baterías de Litio",
+    description: "Tecnología de última generación",
     icon: <IconBattery className="w-7 h-7" />,
-    msg: "Hola, necesito cotizar baterias de litio para montacargas",
+    msg: "Hola, necesito cotizar baterías de litio para montacargas",
   },
   {
-    name: "Sistema Hidraulico",
+    name: "Sistema Hidráulico",
     description: "Bombas, cilindros, mangueras y sellos",
     icon: <IconHydraulic className="w-7 h-7" />,
-    msg: "Hola, necesito repuestos del sistema hidraulico",
+    msg: "Hola, necesito repuestos del sistema hidráulico",
   },
   {
-    name: "Motor y Transmision",
+    name: "Motor y Transmisión",
     description: "Repuestos originales y alternativos",
     icon: <IconEngine className="w-7 h-7" />,
-    msg: "Hola, necesito repuestos de motor y transmision",
+    msg: "Hola, necesito repuestos de motor y transmisión",
   },
   {
-    name: "Sistema Electrico",
+    name: "Sistema Eléctrico",
     description: "Contactores, cables, controladores",
     icon: <IconElectric className="w-7 h-7" />,
-    msg: "Hola, necesito repuestos del sistema electrico",
+    msg: "Hola, necesito repuestos del sistema eléctrico",
   },
   {
     name: "Cadenas y Rodillos",
-    description: "Para mastiles y sistemas de elevacion",
+    description: "Para mástiles y sistemas de elevación",
     icon: <IconChain className="w-7 h-7" />,
     msg: "Hola, necesito cadenas y rodillos para montacargas",
   },
@@ -94,11 +94,11 @@ export default function Repuestos() {
           </div>
           <div>
             <h3 className="font-bold text-brand-dark text-lg">
-              Garantia en todos nuestros repuestos
+              Garantía en todos nuestros repuestos
             </h3>
             <p className="text-gray-600 text-sm mt-1">
               Trabajamos con repuestos originales y alternativos certificados.
-              Soporte tecnico nacional para instalacion y mantenimiento.
+              Soporte técnico nacional para instalación y mantenimiento.
             </p>
           </div>
           <a

@@ -11,13 +11,13 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Uniparts Andina | Montacargas de Litio y Repuestos en Venezuela",
   description:
-    "Montacargas Unilift de litio, repuestos originales y alternativos, cauchos y servicio tecnico en toda Venezuela. Cotiza ahora.",
+    "Montacargas de litio y de combustión, nuevos y usados, repuestos originales y alternativos, cauchos y servicio técnico en toda Venezuela. Cotiza ahora.",
   keywords:
-    "montacargas, repuestos montacargas, cauchos montacargas, montacargas litio, Venezuela, Unilift, apiladores, transpaletas",
+    "montacargas, montacargas usados, montacargas combustión, repuestos montacargas, cauchos montacargas, montacargas litio, Venezuela, apiladores, transpaletas",
   openGraph: {
     title: "Uniparts Andina | Montacargas y Repuestos en Venezuela",
     description:
-      "Tu operacion no puede parar. Montacargas de litio, repuestos y servicio tecnico especializado.",
+      "Tu operación no puede parar. Montacargas de litio, repuestos y servicio técnico especializado.",
     type: "website",
     locale: "es_VE",
   },

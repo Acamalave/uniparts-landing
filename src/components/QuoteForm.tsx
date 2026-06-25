@@ -3,15 +3,31 @@ import { useState } from "react";
 import { db } from "@/lib/firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
+// Valida números móviles venezolanos: 0414/0424/0412/0416/0426 + 7 dígitos.
+// Acepta separadores (-, espacios) y el prefijo internacional +58.
+const isValidVePhone = (raw: string) => {
+  let digits = raw.replace(/\D/g, "");
+  if (digits.startsWith("58")) digits = "0" + digits.slice(2);
+  return /^0(412|414|416|424|426)\d{7}$/.test(digits);
+};
+
+const isValidEmail = (raw: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(raw.trim());
+
 export default function QuoteForm() {
   const [form, setForm] = useState({
     nombre: "",
     empresa: "",
     whatsapp: "",
+    email: "",
     necesidad: "",
     urgencia: "",
   });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [errors, setErrors] = useState<{
+    whatsapp?: string;
+    email?: string;
+    contacto?: string;
+  }>({});
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -21,6 +37,25 @@ export default function QuoteForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const hasPhone = form.whatsapp.trim() !== "";
+    const hasEmail = form.email.trim() !== "";
+    const newErrors: { whatsapp?: string; email?: string; contacto?: string } = {};
+
+    if (!hasPhone && !hasEmail) {
+      newErrors.contacto =
+        "Déjanos al menos un medio de contacto: WhatsApp o correo.";
+    }
+    if (hasPhone && !isValidVePhone(form.whatsapp)) {
+      newErrors.whatsapp = "Ingresa un número válido, ej: 0414-1234567.";
+    }
+    if (hasEmail && !isValidEmail(form.email)) {
+      newErrors.email = "Ingresa un correo electrónico válido.";
+    }
+
+    setErrors(newErrors);
+    if (Object.keys(newErrors).length > 0) return;
+
     setStatus("sending");
 
     try {
@@ -30,7 +65,14 @@ export default function QuoteForm() {
         status: "nuevo",
       });
       setStatus("sent");
-      setForm({ nombre: "", empresa: "", whatsapp: "", necesidad: "", urgencia: "" });
+      setForm({
+        nombre: "",
+        empresa: "",
+        whatsapp: "",
+        email: "",
+        necesidad: "",
+        urgencia: "",
+      });
     } catch {
       setStatus("error");
     }
@@ -43,10 +85,10 @@ export default function QuoteForm() {
           {/* Form */}
           <div>
             <span className="text-brand-orange font-semibold text-sm uppercase tracking-widest">
-              Cotizacion rapida
+              Cotización rápida
             </span>
             <h2 className="text-3xl sm:text-4xl font-black text-brand-dark mt-2 mb-3">
-              Solicita tu cotizacion
+              Solicita tu cotización
             </h2>
             <p className="text-gray-500 mb-8">
               Completa el formulario y te respondemos en menos de 2 horas en
@@ -61,17 +103,11 @@ export default function QuoteForm() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold text-green-700 mb-2">
-                  Cotizacion enviada
+                  Cotización enviada
                 </h3>
                 <p className="text-green-600 text-sm">
-                  Nuestro equipo se pondra en contacto contigo a la brevedad.
+                  Nuestro equipo se pondrá en contacto contigo a la brevedad.
                 </p>
-                <button
-                  onClick={() => setStatus("idle")}
-                  className="mt-4 text-green-700 underline text-sm"
-                >
-                  Enviar otra cotizacion
-                </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -107,22 +143,60 @@ export default function QuoteForm() {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    WhatsApp *
+                    WhatsApp
                   </label>
                   <input
                     type="tel"
                     name="whatsapp"
-                    required
+                    inputMode="tel"
                     value={form.whatsapp}
                     onChange={handleChange}
-                    placeholder="04XX-XXXXXXX"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 outline-none text-sm transition-all"
+                    placeholder="0414-1234567"
+                    aria-invalid={!!errors.whatsapp}
+                    className={`w-full px-4 py-3 rounded-xl border outline-none text-sm transition-all focus:ring-2 ${
+                      errors.whatsapp
+                        ? "border-red-400 focus:border-red-400 focus:ring-red-200"
+                        : "border-gray-200 focus:border-brand-orange focus:ring-brand-orange/20"
+                    }`}
                   />
+                  {errors.whatsapp && (
+                    <p className="text-red-500 text-xs mt-1">{errors.whatsapp}</p>
+                  )}
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Que necesitas? *
+                    Correo electrónico
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    inputMode="email"
+                    value={form.email}
+                    onChange={handleChange}
+                    placeholder="tucorreo@empresa.com"
+                    aria-invalid={!!errors.email}
+                    className={`w-full px-4 py-3 rounded-xl border outline-none text-sm transition-all focus:ring-2 ${
+                      errors.email
+                        ? "border-red-400 focus:border-red-400 focus:ring-red-200"
+                        : "border-gray-200 focus:border-brand-orange focus:ring-brand-orange/20"
+                    }`}
+                  />
+                  {errors.email && (
+                    <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+                  )}
+                  <p className="text-gray-400 text-xs mt-1.5">
+                    Déjanos tu WhatsApp o tu correo (al menos uno). El correo es
+                    ideal si prefieres no compartir tu número.
+                  </p>
+                  {errors.contacto && (
+                    <p className="text-red-500 text-xs mt-1">{errors.contacto}</p>
+                  )}
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    ¿Qué necesitas? *
                   </label>
                   <select
                     name="necesidad"
@@ -131,13 +205,13 @@ export default function QuoteForm() {
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/20 outline-none text-sm transition-all bg-white"
                   >
-                    <option value="">Selecciona una opcion</option>
+                    <option value="">Selecciona una opción</option>
                     <option value="montacargas-nuevo">Montacargas nuevo</option>
-                    <option value="apilador">Apilador electrico</option>
+                    <option value="apilador">Apilador eléctrico</option>
                     <option value="transpaleta">Transpaleta</option>
                     <option value="repuestos">Repuestos</option>
                     <option value="cauchos">Cauchos</option>
-                    <option value="servicio-tecnico">Servicio tecnico</option>
+                    <option value="servicio-tecnico">Servicio técnico</option>
                     <option value="alquiler">Alquiler de equipo</option>
                     <option value="otro">Otro</option>
                   </select>
@@ -175,13 +249,13 @@ export default function QuoteForm() {
                       Enviando...
                     </>
                   ) : (
-                    "Enviar cotizacion"
+                    "Enviar cotización"
                   )}
                 </button>
 
                 {status === "error" && (
                   <p className="text-red-500 text-sm text-center">
-                    Error al enviar. Por favor intenta de nuevo o contactanos por WhatsApp.
+                    Error al enviar. Por favor intenta de nuevo o contáctanos por WhatsApp.
                   </p>
                 )}
               </form>
@@ -190,18 +264,42 @@ export default function QuoteForm() {
 
           {/* Contact info + Map */}
           <div className="space-y-6">
-            {/* Map */}
-            <div className="rounded-2xl overflow-hidden h-64 lg:h-80">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3927.1!2d-68.01!3d10.18!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDEwJzQ4LjAiTiA2OMKwMDAnMzYuMCJX!5e0!3m2!1ses!2sve!4v1"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Ubicacion Uniparts Andina"
-              />
+            {/* Maps - dos sedes */}
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div>
+                <p className="text-xs font-semibold text-brand-dark mb-1.5">
+                  Sede Valencia · Carabobo
+                </p>
+                <div className="rounded-2xl overflow-hidden h-48 lg:h-56">
+                  <iframe
+                    src="https://maps.google.com/maps?cid=9100246823456181351&hl=es&z=16&output=embed"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Ubicación Uniparts Andina - Sede Valencia"
+                  />
+                </div>
+              </div>
+              <div>
+                <p className="text-xs font-semibold text-brand-dark mb-1.5">
+                  Sede Oriente · Anzoátegui
+                </p>
+                <div className="rounded-2xl overflow-hidden h-48 lg:h-56">
+                  <iframe
+                    src="https://maps.google.com/maps?cid=8851384613801079495&hl=es&z=16&output=embed"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Ubicación Uniparts Oriente - Barcelona, Anzoátegui"
+                  />
+                </div>
+              </div>
             </div>
 
             {/* Contact cards */}
@@ -212,10 +310,20 @@ export default function QuoteForm() {
                     <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                   </svg>
                 </div>
-                <h4 className="font-bold text-brand-dark text-sm">Direccion</h4>
-                <p className="text-gray-500 text-xs mt-1">
+                <h4 className="font-bold text-brand-dark text-sm">Direcciones</h4>
+                <p className="text-brand-orange text-xs font-semibold mt-2">
+                  Sede Valencia
+                </p>
+                <p className="text-gray-500 text-xs mt-0.5">
                   Local #2, Av. 67, C.C. SCI de Galpones Tacarigua, PB. Valencia
                   2003, Carabobo
+                </p>
+                <p className="text-brand-orange text-xs font-semibold mt-2">
+                  Sede Oriente
+                </p>
+                <p className="text-gray-500 text-xs mt-0.5">
+                  C.I RVALL, Av. Principal Los Mesones, Barcelona 6001,
+                  Anzoátegui
                 </p>
               </div>
 
@@ -225,7 +333,7 @@ export default function QuoteForm() {
                     <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
                   </svg>
                 </div>
-                <h4 className="font-bold text-brand-dark text-sm">Telefono</h4>
+                <h4 className="font-bold text-brand-dark text-sm">Teléfono</h4>
                 <p className="text-gray-500 text-xs mt-1">(0241) 7006020</p>
                 <p className="text-gray-500 text-xs">comercial@upandina.com</p>
               </div>
@@ -239,9 +347,8 @@ export default function QuoteForm() {
                 </div>
                 <h4 className="font-bold text-brand-dark text-sm">Horario</h4>
                 <p className="text-gray-500 text-xs mt-1">
-                  Lunes a Viernes: 8:00 AM - 5:00 PM
+                  Lunes a Viernes: 7:30 AM - 4:30 PM
                 </p>
-                <p className="text-gray-500 text-xs">Sabados: 8:00 AM - 12:00 PM</p>
               </div>
 
               <div className="bg-white p-5 rounded-xl border border-gray-100">
@@ -251,8 +358,8 @@ export default function QuoteForm() {
                   </svg>
                 </div>
                 <h4 className="font-bold text-brand-dark text-sm">WhatsApp</h4>
-                <p className="text-gray-500 text-xs mt-1">Ventas: +58 414-7006020</p>
-                <p className="text-gray-500 text-xs">Repuestos: +58 414-7006020</p>
+                <p className="text-gray-500 text-xs mt-1">Ventas: +58 414-4025540</p>
+                <p className="text-gray-500 text-xs">Repuestos: +58 414-4025540</p>
               </div>
             </div>
           </div>

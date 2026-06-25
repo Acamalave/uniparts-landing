@@ -6,13 +6,13 @@ import {
   IconWeightSm, IconWeightMd, IconWeightLg, IconQuestion,
 } from "@/components/Icons";
 
-const whatsappNumber = "584147006020";
+const whatsappNumber = "584144025540";
 
 const iconClass = "w-8 h-8";
 
 const steps = [
   {
-    question: "Que tipo de equipo necesitas?",
+    question: "¿Qué tipo de equipo necesitas?",
     options: [
       { label: "Montacargas", icon: <IconForklift className={iconClass} />, value: "montacargas" },
       { label: "Apilador", icon: <IconStacker className={iconClass} />, value: "apilador" },
@@ -21,20 +21,20 @@ const steps = [
     ],
   },
   {
-    question: "Para que tipo de operacion?",
+    question: "¿Para qué tipo de operación?",
     options: [
-      { label: "Almacen / Interior", icon: <IconWarehouse className={iconClass} />, value: "almacen" },
+      { label: "Almacén / Interior", icon: <IconWarehouse className={iconClass} />, value: "almacen" },
       { label: "Exterior / Patio", icon: <IconOutdoor className={iconClass} />, value: "exterior" },
       { label: "Pasillo angosto", icon: <IconNarrowAisle className={iconClass} />, value: "pasillo-angosto" },
       { label: "Carga pesada", icon: <IconHeavyLoad className={iconClass} />, value: "carga-pesada" },
     ],
   },
   {
-    question: "Que capacidad de carga requieres?",
+    question: "¿Qué capacidad de carga requieres?",
     options: [
       { label: "Hasta 2 toneladas", icon: <IconWeightSm className={iconClass} />, value: "hasta-2t" },
       { label: "2 a 5 toneladas", icon: <IconWeightMd className={iconClass} />, value: "2-5t" },
-      { label: "Mas de 5 toneladas", icon: <IconWeightLg className={iconClass} />, value: "mas-5t" },
+      { label: "Más de 5 toneladas", icon: <IconWeightLg className={iconClass} />, value: "mas-5t" },
       { label: "No estoy seguro", icon: <IconQuestion className={iconClass} />, value: "no-seguro" },
     ],
   },
@@ -65,12 +65,12 @@ export default function EquipmentFinder() {
   const getWhatsAppMessage = () => {
     const equipoMap: Record<string, string> = {
       montacargas: "Montacargas",
-      apilador: "Apilador electrico",
+      apilador: "Apilador eléctrico",
       transpaleta: "Transpaleta",
       repuestos: "Repuestos/Cauchos",
     };
     const usoMap: Record<string, string> = {
-      almacen: "Almacen/Interior",
+      almacen: "Almacén/Interior",
       exterior: "Exterior/Patio",
       "pasillo-angosto": "Pasillo angosto",
       "carga-pesada": "Carga pesada",
@@ -78,7 +78,7 @@ export default function EquipmentFinder() {
     const capMap: Record<string, string> = {
       "hasta-2t": "Hasta 2 ton",
       "2-5t": "2 a 5 ton",
-      "mas-5t": "Mas de 5 ton",
+      "mas-5t": "Más de 5 ton",
       "no-seguro": "Por definir",
     };
 
@@ -87,7 +87,7 @@ export default function EquipmentFinder() {
         `- Equipo: ${equipoMap[answers[0]] || answers[0]}\n` +
         `- Uso: ${usoMap[answers[1]] || answers[1]}\n` +
         `- Capacidad: ${capMap[answers[2]] || answers[2]}\n\n` +
-        `Me pueden asesorar?`
+        `¿Me pueden asesorar?`
     );
   };
 
@@ -102,8 +102,8 @@ export default function EquipmentFinder() {
             Encuentra tu equipo ideal
           </h2>
           <p className="text-gray-500 mt-3 max-w-lg mx-auto">
-            Responde 3 preguntas y te recomendamos la mejor solucion para tu
-            operacion
+            Responde 3 preguntas y te recomendamos la mejor solución para tu
+            operación
           </p>
         </div>
 
@@ -177,7 +177,7 @@ export default function EquipmentFinder() {
               </h3>
               <p className="text-gray-500 mb-8 max-w-md mx-auto">
                 Hemos identificado tu necesidad. Un asesor especializado te
-                contactara con las mejores opciones y precios.
+                contactará con las mejores opciones y precios.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -190,7 +190,7 @@ export default function EquipmentFinder() {
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                   </svg>
-                  Recibir asesoria por WhatsApp
+                  Recibir asesoría por WhatsApp
                 </a>
                 <button
                   onClick={reset}

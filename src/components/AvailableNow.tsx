@@ -1,43 +1,43 @@
 "use client";
 
-const whatsappNumber = "584147006020";
+const whatsappNumber = "584144025540";
 
 const equipment = [
   {
     name: "Montacargas Contrabalanceado Litio",
     brand: "Unilift",
     capacity: "2.0 Ton",
-    type: "Electrico Litio",
+    type: "Eléctrico Litio",
     image: "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?auto=format&fit=crop&w=600&q=80",
     badge: "EN STOCK",
-    features: ["Bateria de litio", "Carga rapida", "Bajo mantenimiento"],
+    features: ["Batería de litio", "Carga rápida", "Bajo mantenimiento"],
   },
   {
-    name: "Apilador Electrico US20LI",
+    name: "Apilador Eléctrico US20LI",
     brand: "Unilift",
     capacity: "2.0 Ton",
-    type: "Electrico",
+    type: "Eléctrico",
     image: "https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=600&q=80",
     badge: "EN STOCK",
-    features: ["5m elevacion", "Pasillo angosto", "Operacion silenciosa"],
+    features: ["5m elevación", "Pasillo angosto", "Operación silenciosa"],
   },
   {
     name: "Montacargas Three Wheel",
     brand: "Unilift",
     capacity: "1.5 - 2.0 Ton",
-    type: "Electrico Litio",
+    type: "Eléctrico Litio",
     image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80",
     badge: "DISPONIBLE",
-    features: ["3 ruedas", "Maxima maniobrabilidad", "Interior/Exterior"],
+    features: ["3 ruedas", "Máxima maniobrabilidad", "Interior/Exterior"],
   },
   {
-    name: "Transpaleta Electrica",
+    name: "Transpaleta Eléctrica",
     brand: "Unilift",
     capacity: "2.5 Ton",
-    type: "Electrica",
+    type: "Eléctrica",
     image: "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=600&q=80",
     badge: "EN STOCK",
-    features: ["Carga/descarga rapida", "Compacta", "Facil operacion"],
+    features: ["Carga/descarga rápida", "Compacta", "Fácil operación"],
   },
 ];
 
@@ -58,12 +58,12 @@ export default function AvailableNow() {
             </p>
           </div>
           <a
-            href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hola, quiero conocer todo el catalogo de equipos disponibles")}`}
+            href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hola, quiero conocer todo el catálogo de equipos disponibles")}`}
             target="_blank"
             rel="noopener noreferrer"
             className="text-brand-orange hover:text-brand-orange-dark font-semibold text-sm flex items-center gap-1 shrink-0"
           >
-            Ver catalogo completo
+            Ver catálogo completo
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
@@ -119,7 +119,7 @@ export default function AvailableNow() {
                 </ul>
 
                 <a
-                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Hola, me interesa el ${item.name} (${item.capacity}) que vi disponible en su pagina. Me pueden enviar precio y condiciones?`)}`}
+                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Hola, me interesa el ${item.name} (${item.capacity}) que vi disponible en su página. ¿Me pueden enviar precio y condiciones?`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-5 w-full bg-brand-dark hover:bg-brand-orange text-white font-semibold py-3 rounded-xl text-sm transition-all flex items-center justify-center gap-2"

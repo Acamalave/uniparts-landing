@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { IconForklift, IconGear, IconWrench } from "@/components/Icons";
 
-const whatsappNumber = "584147006020";
+const whatsappNumber = "584144025540";
 
 const departments = [
   {
@@ -16,8 +16,8 @@ const departments = [
     icon: <IconGear className="w-5 h-5" />,
   },
   {
-    label: "Servicio Tecnico",
-    msg: "Hola, necesito servicio tecnico para mi montacargas",
+    label: "Servicio Técnico",
+    msg: "Hola, necesito servicio técnico para mi montacargas",
     icon: <IconWrench className="w-5 h-5" />,
   },
 ];
@@ -50,7 +50,7 @@ export default function WhatsAppFloat() {
                   <p className="font-semibold text-sm text-brand-dark">
                     {dept.label}
                   </p>
-                  <p className="text-xs text-gray-400">Respuesta rapida</p>
+                  <p className="text-xs text-gray-400">Respuesta rápida</p>
                 </div>
               </a>
             ))}

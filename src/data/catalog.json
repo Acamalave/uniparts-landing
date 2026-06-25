@@ -1,0 +1,902 @@
+[
+  {
+    "id": 32008,
+    "slug": "1-2t-double-pantograph-stacker-up-unad12li",
+    "name": "1.2T DOUBLE PANTOGRAPH STACKER",
+    "ref": "UP-UNAD12LI",
+    "description": "MONTACARGAS PASILLO ANGOSTO DOBLE PANTÓGRAFO 1.200 KG UNILIFT",
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/32008.png"
+  },
+  {
+    "id": 35245,
+    "slug": "andino-forklift-internal-combustion-xf250-xf250",
+    "name": "ANDINO FORKLIFT INTERNAL COMBUSTION XF250",
+    "ref": "XF250",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": null
+  },
+  {
+    "id": 25072,
+    "slug": "diesel-forklift-model-acc30d-andino-3-0ton-acc30d",
+    "name": "DIESEL FORKLIFT MODEL ACC30D ANDINO 3.0TON",
+    "ref": "ACC30D",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/25072.png"
+  },
+  {
+    "id": 25073,
+    "slug": "diesel-forklift-model-acc35d-andino-3-5-ton-acc35d",
+    "name": "DIESEL FORKLIFT MODEL ACC35D ANDINO 3.5 TON",
+    "ref": "ACC35D",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/25073.jpg"
+  },
+  {
+    "id": 25074,
+    "slug": "diesel-forklift-model-acc50d-andino-5-ton-acc50d",
+    "name": "DIESEL FORKLIFT MODEL ACC50D ANDINO 5 TON",
+    "ref": "ACC50D",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/25074.png"
+  },
+  {
+    "id": 25122,
+    "slug": "electric-forklift-model-ec25w4li-megalift-ec25w4li",
+    "name": "ELECTRIC FORKLIFT - MODEL EC25W4Li MEGALIFT",
+    "ref": "EC25W4Li",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/25122.png"
+  },
+  {
+    "id": 33849,
+    "slug": "electric-forklift-model-ec35w4li-megalift-ec35w4li",
+    "name": "ELECTRIC FORKLIFT - MODEL EC35W4Li MEGALIFT",
+    "ref": "EC35W4LI",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/33849.jpg"
+  },
+  {
+    "id": 34092,
+    "slug": "electric-forklift-model-ec35w4li-megalift-carpet-pole-ec35w4",
+    "name": "ELECTRIC FORKLIFT - MODEL EC35W4Li MEGALIFT   (CARPET POLE)",
+    "ref": "EC35W4LI (CARPET POLE)",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/34092.jpg"
+  },
+  {
+    "id": 33850,
+    "slug": "electric-forklift-model-ec45w4li-megalift-plus-ecp45w4li",
+    "name": "ELECTRIC FORKLIFT - MODEL EC45W4Li MEGALIFT PLUS",
+    "ref": "ECP45W4LI",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/33850.jpg"
+  },
+  {
+    "id": 33851,
+    "slug": "electric-forklift-model-ecp38w4li-megalift-plus-ecp38w4li",
+    "name": "ELECTRIC FORKLIFT - MODEL ECP38W4Li MEGALIFT PLUS",
+    "ref": "ECP38W4LI",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/33851.png"
+  },
+  {
+    "id": 35269,
+    "slug": "electric-forklift-180-ton-megalift-ecp180w4li",
+    "name": "ELECTRIC FORKLIFT 180 TON MEGALIFT",
+    "ref": "ECP180W4LI",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/35269.jpg"
+  },
+  {
+    "id": 25120,
+    "slug": "electric-forklift-andino-model-aece25w4li-with-charger-eco-a",
+    "name": "ELECTRIC FORKLIFT ANDINO MODEL AECE25W4LI WITH CHARGER ECO",
+    "ref": "AECE25W4LI",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/25120.png"
+  },
+  {
+    "id": 35248,
+    "slug": "electric-forklift-megalift-ec18w3li-ec18w3li",
+    "name": "ELECTRIC FORKLIFT MEGALIFT EC18W3LI",
+    "ref": "EC18W3LI",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/35248.png"
+  },
+  {
+    "id": 25125,
+    "slug": "electric-forklift-megalift-model-ec20w3li-with-charger-ec20w",
+    "name": "ELECTRIC FORKLIFT MEGALIFT MODEL EC20W3LI WITH CHARGER",
+    "ref": "EC20W3Li",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/25125.png"
+  },
+  {
+    "id": 34609,
+    "slug": "electric-forklift-megalift-model-ec20w3li-v2-ec20w3li-v2",
+    "name": "ELECTRIC FORKLIFT MEGALIFT MODEL EC20W3LI-V2",
+    "ref": "EC20W3LI-V2",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/34609.png"
+  },
+  {
+    "id": 35296,
+    "slug": "electric-forklift-megalift-model-ec20w3li-v2-with-charger-ec",
+    "name": "ELECTRIC FORKLIFT MEGALIFT MODEL EC20W3LI-V2 WITH CHARGER",
+    "ref": "EC20W3LI-V2-CH",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/35296.png"
+  },
+  {
+    "id": 25124,
+    "slug": "electric-forklift-model-aec30w4li-aec30w4li",
+    "name": "ELECTRIC FORKLIFT MODEL AEC30W4Li",
+    "ref": "AEC30W4Li",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/25124.png"
+  },
+  {
+    "id": 25121,
+    "slug": "electric-forklift-model-aec35w4li-with-charger-black-orange-",
+    "name": "ELECTRIC FORKLIFT MODEL AEC35W4Li WITH CHARGER BLACK/ORANGE ANDINO",
+    "ref": "AEC35W4LI",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/25121.png"
+  },
+  {
+    "id": 25126,
+    "slug": "electric-forklift-model-ec20w4li-with-charger-and-transforme",
+    "name": "ELECTRIC FORKLIFT MODEL EC20W4LI with charger and transformer",
+    "ref": "EC20W4Li",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/25126.png"
+  },
+  {
+    "id": 25127,
+    "slug": "electric-forklift-truck-2-ton-andino-model-aec20w3li-aec20w3",
+    "name": "ELECTRIC FORKLIFT TRUCK 2 TON ANDINO MODEL AEC20W3Li",
+    "ref": "AEC20W3Li",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/25127.jpg"
+  },
+  {
+    "id": 25128,
+    "slug": "electric-forklift-truck-2-ton-unilift-model-u20w3li-with-cha",
+    "name": "ELECTRIC FORKLIFT TRUCK 2 TON UNILIFT MODEL U20W3Li WITH CHARGER",
+    "ref": "U20W3Li",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/25128.jpg"
+  },
+  {
+    "id": 25129,
+    "slug": "electric-forklift-truck-2-5-ton-unilift-model-ue25w4li-with-",
+    "name": "ELECTRIC FORKLIFT TRUCK 2.5 TON UNILIFT MODEL UE25W4LI WITH CHARGER",
+    "ref": "UE25W4LI",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/25129.jpg"
+  },
+  {
+    "id": 25130,
+    "slug": "electric-forklift-truck-3-ton-megalift-ec30w4li",
+    "name": "ELECTRIC FORKLIFT TRUCK 3 TON MEGALIFT",
+    "ref": "EC30W4Li",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/25130.png"
+  },
+  {
+    "id": 35293,
+    "slug": "electric-forklift-truck-3-ton-megalift-with-charger-ec30w4li",
+    "name": "ELECTRIC FORKLIFT TRUCK 3 TON MEGALIFT WITH CHARGER",
+    "ref": "EC30W4Li-CH",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/35293.jpg"
+  },
+  {
+    "id": 25123,
+    "slug": "electric-forklift-truck-andino-2-500kg-model-aec25w4li-aec25",
+    "name": "ELECTRIC FORKLIFT TRUCK ANDINO 2.500kg MODEL AEC25W4Li",
+    "ref": "AEC25W4Li",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/25123.png"
+  },
+  {
+    "id": 35292,
+    "slug": "electric-forklift-truck-megalift-2-500-kg-model-ec25w4li-meg",
+    "name": "ELECTRIC FORKLIFT TRUCK MEGALIFT 2.500 kg- MODEL EC25W4Li MEGALIFT WITH CHARGER",
+    "ref": "EC25W4Li-CH",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/35292.png"
+  },
+  {
+    "id": 34381,
+    "slug": "electric-forklift-truck-megalift-model-ecs15w3li-6-1-mts-ecs",
+    "name": "ELECTRIC FORKLIFT TRUCK MEGALIFT MODEL ECS15W3LI  6.1 MTS",
+    "ref": "ECS15W3LI(1)",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/34381.png"
+  },
+  {
+    "id": 34380,
+    "slug": "electric-forklift-truck-megalift-model-ecs15w3li-7-mts-ecs15",
+    "name": "ELECTRIC FORKLIFT TRUCK MEGALIFT MODEL ECS15W3LI  7 MTS",
+    "ref": "ECS15W3LI",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/34380.png"
+  },
+  {
+    "id": 34382,
+    "slug": "electric-forklift-truck-megalift-model-ecs20w3li-4-8-mts-ecs",
+    "name": "ELECTRIC FORKLIFT TRUCK MEGALIFT MODEL ECS20W3LI  4.8 MTS",
+    "ref": "ECS20W3LI",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/34382.png"
+  },
+  {
+    "id": 35297,
+    "slug": "electric-forklift-truck-megalift-model-ecs20w3li-4-8-mts-wit",
+    "name": "ELECTRIC FORKLIFT TRUCK MEGALIFT MODEL ECS20W3LI  4.8 MTS WITH CHARGER",
+    "ref": "ECS20W3LI-CH",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/35297.png"
+  },
+  {
+    "id": 35298,
+    "slug": "electric-forklift-truck-model-ecp45w4li-4-500-kg-megalift-pl",
+    "name": "ELECTRIC FORKLIFT TRUCK- MODEL ECP45W4Li 4.500 kg MEGALIFT PLUS WITH CHARGER",
+    "ref": "ECP45W4LI-CH",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/35298.jpg"
+  },
+  {
+    "id": 33855,
+    "slug": "electric-forklift-used-yale-erp040vt-year-2019-erp040vt",
+    "name": "ELECTRIC FORKLIFT USED YALE ERP040VT YEAR 2019",
+    "ref": "ERP040VT",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": null
+  },
+  {
+    "id": 30002,
+    "slug": "electric-pallet-megalift-model-mepr35li-with-charger-green-b",
+    "name": "ELECTRIC PALLET MEGALIFT MODEL MEPR35Li* WITH CHARGER GREEN/BLACK (DOUBLE PALLET)",
+    "ref": "MEPR35Li*",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/30002.jpg"
+  },
+  {
+    "id": 35246,
+    "slug": "electric-reach-truck-2-ton-eddp-20li-eddp-20li",
+    "name": "ELECTRIC REACH TRUCK 2-TON EDDP-20LI",
+    "ref": "EDDP-20LI",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": null
+  },
+  {
+    "id": 33938,
+    "slug": "electric-stacker-model-aes12li-andino-mast-3580mm-aes12li-35",
+    "name": "ELECTRIC STACKER MODEL AES12Li* ANDINO  MAST 3580mm",
+    "ref": "AES12LI-3580mm",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": null
+  },
+  {
+    "id": 33853,
+    "slug": "electric-stacker-model-aes12li-andino-mast-4100-euro-aes12li",
+    "name": "ELECTRIC STACKER MODEL AES12Li* ANDINO  MAST 4100 euro",
+    "ref": "AES12LI-D",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": null
+  },
+  {
+    "id": 33879,
+    "slug": "electric-forklift-model-ecp18w4li-megalift-18ton-ecp18w4li",
+    "name": "ELECTRIC-FORKLIFT MODEL ECP18W4LI MEGALIFT  18TON",
+    "ref": "ECP18W4LI",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": null
+  },
+  {
+    "id": 33878,
+    "slug": "electric-reach-stacker-model-ml45-megalift-45ton-ml45",
+    "name": "ELECTRIC-REACH STACKER MODEL ML45 MEGALIFT 45TON",
+    "ref": "ML45",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": null
+  },
+  {
+    "id": 34098,
+    "slug": "elevating-platform-electric-model-ebl17li-ebl17li",
+    "name": "ELEVATING PLATFORM ELECTRIC MODEL EBL17LI",
+    "ref": "EBL17LI",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": null
+  },
+  {
+    "id": 35247,
+    "slug": "forklift-internal-combustion-megalift-ml25glp-ml25glp",
+    "name": "FORKLIFT INTERNAL COMBUSTION MEGALIFT ML25GLP",
+    "ref": "ML25GLP",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": null
+  },
+  {
+    "id": 33556,
+    "slug": "forklift-truck-lpg-andino-engine-gkt-k25-mast-4800mm-acc25",
+    "name": "FORKLIFT TRUCK LPG ANDINO ENGINE GKT K25, MAST 4800MM",
+    "ref": "ACC25",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/33556.jpg"
+  },
+  {
+    "id": 33856,
+    "slug": "forklift-truck-clark-used-cgc40-cgc40",
+    "name": "FORKLIFT-TRUCK CLARK USED CGC40",
+    "ref": "CGC40",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": null
+  },
+  {
+    "id": 27995,
+    "slug": "order-picker-used-serie-1801004-with-charger-and-forks-ops15",
+    "name": "ORDER PICKER USED SERIE 1801004 WITH CHARGER AND FORKS",
+    "ref": "OPS15-1801004",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/27995.jpg"
+  },
+  {
+    "id": 28183,
+    "slug": "reach-truck-megalift-model-nadr16li-11-5-mts-nadr16li",
+    "name": "REACH TRUCK MEGALIFT MODEL NADR16Li 11.5 MTS",
+    "ref": "NADR16Li",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/28183.jpg"
+  },
+  {
+    "id": 35294,
+    "slug": "reach-truck-megalift-model-nadr16li-11-5-mts-with-charger-na",
+    "name": "REACH TRUCK MEGALIFT MODEL NADR16Li 11.5 MTS WITH CHARGER",
+    "ref": "NADR16Li-CH",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/35294.jpg"
+  },
+  {
+    "id": 34379,
+    "slug": "reach-truck-megalift-model-nasr20li-7-6-mts-nasr20li",
+    "name": "REACH TRUCK MEGALIFT MODEL NASR20Li 7.6 MTS",
+    "ref": "NASR20Li",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/34379.jpg"
+  },
+  {
+    "id": 32009,
+    "slug": "reach-truck-unilift-1-5-ton-7-5-m-a-serial-9322100013-up-una",
+    "name": "REACH TRUCK UNILIFT 1.5 TON 7.5 M.A SERIAL 9322100013",
+    "ref": "UP-UNAR15LI",
+    "description": "REACH TRUCK UNILIFT 1.5 TON (PASILLO ANGOSTO) 7.5 M.A SERIAL 9322100013",
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/32009.jpg"
+  },
+  {
+    "id": 29967,
+    "slug": "skid-steer-loader-model-s570-bobcat-s570",
+    "name": "SKID-STEER LOADER MODEL S570 BOBCAT",
+    "ref": "S570",
+    "description": null,
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/29967.jpg"
+  },
+  {
+    "id": 32006,
+    "slug": "unilift-2-5t-forklift-serial-1321801002-u25w4li",
+    "name": "UNILIFT 2.5T FORKLIFT (SERIAL 1321801002)",
+    "ref": "U25W4LI",
+    "description": "MONTACARGA UNILIFT 2.5T SERIAL 1321801002",
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/32006.png"
+  },
+  {
+    "id": 32007,
+    "slug": "unilift-3t-forklift-serial-1321801004-up-u30w4li",
+    "name": "UNILIFT 3T FORKLIFT (SERIAL 1321801004)",
+    "ref": "UP-U30W4LI",
+    "description": "MONTACARGA UNILIFT 3T SERIAL 1321801004",
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/32007.png"
+  },
+  {
+    "id": 32005,
+    "slug": "used-unilift-2t-forklift-serial-2321800958-u20w4li",
+    "name": "USED UNILIFT 2T FORKLIFT (SERIAL 2321800958)",
+    "ref": "U20W4LI",
+    "description": "MONTACARGA UNILIFT 2T (USADO) SERIAL 2321800958",
+    "category": "montacargas",
+    "categoryLabel": "Montacargas",
+    "image": "/odoo/32005.png"
+  },
+  {
+    "id": 27496,
+    "slug": "hand-pallet-2-5-ton-hp-25-molding",
+    "name": "HAND PALLET 2.5 TON",
+    "ref": "HP-25 MOLDING",
+    "description": null,
+    "category": "transpaletas",
+    "categoryLabel": "Transpaletas manuales",
+    "image": "/odoo/27496.jpg"
+  },
+  {
+    "id": 27497,
+    "slug": "hand-pallet-2-5-ton-green-hp25-poly",
+    "name": "HAND PALLET 2.5 TON GREEN",
+    "ref": "HP25 POLY",
+    "description": null,
+    "category": "transpaletas",
+    "categoryLabel": "Transpaletas manuales",
+    "image": "/odoo/27497.jpg"
+  },
+  {
+    "id": 27499,
+    "slug": "hand-pallet-685x1220-mm-2-5-ton-hp25-nylon",
+    "name": "HAND PALLET 685x1220 MM 2.5 TON",
+    "ref": "HP25 NYLON",
+    "description": null,
+    "category": "transpaletas",
+    "categoryLabel": "Transpaletas manuales",
+    "image": "/odoo/27499.jpg"
+  },
+  {
+    "id": 33865,
+    "slug": "hand-pallet-685x1220-mm-green-dsk-hp-30-dsk",
+    "name": "HAND PALLET 685x1220 MM GREEN (DSK)",
+    "ref": "HP-30 DSK",
+    "description": null,
+    "category": "transpaletas",
+    "categoryLabel": "Transpaletas manuales",
+    "image": "/odoo/33865.jpg"
+  },
+  {
+    "id": 27500,
+    "slug": "hand-pallet-685x1220-mm-green-3ton-hp30-nylon",
+    "name": "HAND PALLET 685x1220 MM GREEN 3TON",
+    "ref": "HP30 NYLON",
+    "description": null,
+    "category": "transpaletas",
+    "categoryLabel": "Transpaletas manuales",
+    "image": "/odoo/27500.jpg"
+  },
+  {
+    "id": 27498,
+    "slug": "hand-pallet-euro-550x11500-mm-2500-kg-green-hp25-euro-nylon",
+    "name": "HAND PALLET EURO 550x11500 MM 2500 KG GREEN",
+    "ref": "HP25 EURO NYLON",
+    "description": null,
+    "category": "transpaletas",
+    "categoryLabel": "Transpaletas manuales",
+    "image": "/odoo/27498.jpg"
+  },
+  {
+    "id": 34658,
+    "slug": "industrial-pneumatic-tire-6-00-9-full-set-10-ply-650-ornet-6",
+    "name": "INDUSTRIAL - PNEUMATIC TIRE 6.00-9 FULL SET 10-PLY (650) ORNET",
+    "ref": "6.00-9 NEU ORNET",
+    "description": null,
+    "category": "llantas",
+    "categoryLabel": "Llantas y cauchos",
+    "image": null
+  },
+  {
+    "id": 27685,
+    "slug": "industrial-tire-solid-6-00-9-non-marking-6-00-9-nm",
+    "name": "INDUSTRIAL-TIRE SOLID 6.00-9 NON MARKING",
+    "ref": "6.00-9 NM",
+    "description": null,
+    "category": "llantas",
+    "categoryLabel": "Llantas y cauchos",
+    "image": "/odoo/27685.jpg"
+  },
+  {
+    "id": 27686,
+    "slug": "industrial-tire-solid-6-00-9-rim-4-00-golden-crown-6-00-9-gc",
+    "name": "INDUSTRIAL-TIRE SOLID 6.00-9 RIM 4.00 GOLDEN CROWN",
+    "ref": "6.00-9 GC",
+    "description": null,
+    "category": "llantas",
+    "categoryLabel": "Llantas y cauchos",
+    "image": "/odoo/27686.jpg"
+  },
+  {
+    "id": 32074,
+    "slug": "7-00-12-solid-industrial-tire-rim-5-00-non-marking-up-7-00-1",
+    "name": "7.00-12 SOLID INDUSTRIAL TIRE (RIM 5.00 NON-MARKING)",
+    "ref": "UP-7.00-12 NM",
+    "description": "INDUSTRIAL-TIRE SOLID 7.00-12 RIM 5.00 NON MARKING",
+    "category": "llantas",
+    "categoryLabel": "Llantas y cauchos",
+    "image": "/odoo/32074.jpg"
+  },
+  {
+    "id": 27655,
+    "slug": "industrial-tire-pneumatic-7-00-12-haulmax-7-00-12-ha",
+    "name": "INDUSTRIAL -TIRE PNEUMATIC 7.00-12 HAULMAX",
+    "ref": "7.00-12 HA",
+    "description": null,
+    "category": "llantas",
+    "categoryLabel": "Llantas y cauchos",
+    "image": "/odoo/27655.jpg"
+  },
+  {
+    "id": 27656,
+    "slug": "industrial-tire-pneumatic-7-00-12-kelcea-7-00-12-k",
+    "name": "INDUSTRIAL -TIRE PNEUMATIC 7.00-12 KELCEA",
+    "ref": "7.00-12 K",
+    "description": null,
+    "category": "llantas",
+    "categoryLabel": "Llantas y cauchos",
+    "image": "/odoo/27656.jpg"
+  },
+  {
+    "id": 32001,
+    "slug": "6-50-10-golden-crown-solid-tire-up-6-50-10-golden-crown",
+    "name": "6.50-10 GOLDEN CROWN SOLID TIRE",
+    "ref": "UP-6.50-10 GOLDEN CROWN",
+    "description": "CAUCHO SOLIDO 6.50-10 GOLDEN CROWN",
+    "category": "llantas",
+    "categoryLabel": "Llantas y cauchos",
+    "image": "/odoo/32001.jpg"
+  },
+  {
+    "id": 32075,
+    "slug": "6-50-10-kbz-non-marking-solid-industrial-tire-up-6-50-10-nm",
+    "name": "6.50-10 KBZ NON-MARKING SOLID INDUSTRIAL TIRE",
+    "ref": "UP-6.50-10 NM",
+    "description": "INDUSTRIAL -TIRE SOLID 6.50-10 NO MARKING KBZ",
+    "category": "llantas",
+    "categoryLabel": "Llantas y cauchos",
+    "image": "/odoo/32075.jpg"
+  },
+  {
+    "id": 35225,
+    "slug": "industrial-tire-pneumatic-6-50-10-speedways-6-50-10-speedway",
+    "name": "INDUSTRIAL - TIRE PNEUMATIC 6.50-10 SPEEDWAYS",
+    "ref": "6.50-10 SPEEDWAYS",
+    "description": null,
+    "category": "llantas",
+    "categoryLabel": "Llantas y cauchos",
+    "image": null
+  },
+  {
+    "id": 32069,
+    "slug": "28x9-15-solid-super-lug-tread-tire-up-28x9-15-solid-super-lu",
+    "name": "28X9-15 SOLID SUPER LUG TREAD TIRE",
+    "ref": "UP-28X9-15 SOLID SUPER LUG SOLIDO TACO",
+    "description": "CAUCHO SOLIDO 28X9-15 SOLID SUPER LUG TACO",
+    "category": "llantas",
+    "categoryLabel": "Llantas y cauchos",
+    "image": "/odoo/32069.jpg"
+  },
+  {
+    "id": 27654,
+    "slug": "industrial-tire-pneumatic-28x9-15-rim-7-00-supertrack-28x9-1",
+    "name": "INDUSTRIAL -TIRE PNEUMATIC 28X9-15 RIM 7.00 SUPERTRACK",
+    "ref": "28X9-15 SPTN",
+    "description": null,
+    "category": "llantas",
+    "categoryLabel": "Llantas y cauchos",
+    "image": "/odoo/27654.jpg"
+  },
+  {
+    "id": 34665,
+    "slug": "industrial-tire-pneumatic-28x9-15-solidtrac-28x9-15-st-neu",
+    "name": "INDUSTRIAL -TIRE PNEUMATIC 28X9-15 SOLIDTRAC",
+    "ref": "28X9-15 ST NEU",
+    "description": null,
+    "category": "llantas",
+    "categoryLabel": "Llantas y cauchos",
+    "image": null
+  },
+  {
+    "id": 32038,
+    "slug": "18x7-8-rim-4-33-8-holes-up-ty44120-33311-71",
+    "name": "18X7-8 RIM (4.33-8 HOLES)",
+    "ref": "UP-TY44120-33311-71",
+    "description": "RIM 18X7-8 4.33-8 HUECOS",
+    "category": "llantas",
+    "categoryLabel": "Llantas y cauchos",
+    "image": "/odoo/32038.jpg"
+  },
+  {
+    "id": 32073,
+    "slug": "18x7-8-solid-industrial-tire-rim-4-33-non-marking-up-18x7-8-",
+    "name": "18X7-8 SOLID INDUSTRIAL TIRE (RIM 4.33 NON-MARKING)",
+    "ref": "UP-18x7-8 NM",
+    "description": "INDUSTRIAL TIRE SOLID 18X7-8 RIM 4.33 NON MARKING",
+    "category": "llantas",
+    "categoryLabel": "Llantas y cauchos",
+    "image": "/odoo/32073.jpg"
+  },
+  {
+    "id": 33461,
+    "slug": "new-empty-lpg-cylinder-33-5lb-33-5-lpg-tank",
+    "name": "NEW EMPTY LPG CYLINDER  33.5LB",
+    "ref": "33.5 LPG TANK",
+    "description": "TANK 33.5 LIBRAS (BOMBONA)",
+    "category": "cilindros-gas",
+    "categoryLabel": "Cilindros y sistema GLP",
+    "image": "/odoo/33461.jpg"
+  },
+  {
+    "id": 29694,
+    "slug": "lpg-kit-ty04221-20400-71",
+    "name": "LPG KIT",
+    "ref": "TY04221-20400-71",
+    "description": null,
+    "category": "cilindros-gas",
+    "categoryLabel": "Cilindros y sistema GLP",
+    "image": "/odoo/29694.jpg"
+  },
+  {
+    "id": 33413,
+    "slug": "bare-4g63-head-lpg-up-md192297",
+    "name": "BARE 4G63 HEAD (LPG)",
+    "ref": "UP-MD192297",
+    "description": "HEAD - BARE 4G63 BARE 4G63 (LPG)",
+    "category": "cilindros-gas",
+    "categoryLabel": "Cilindros y sistema GLP",
+    "image": "/odoo/33413.jpg"
+  },
+  {
+    "id": 34600,
+    "slug": "conector-hembra-lpg-re7141f",
+    "name": "CONECTOR HEMBRA LPG",
+    "ref": "RE7141F",
+    "description": null,
+    "category": "cilindros-gas",
+    "categoryLabel": "Cilindros y sistema GLP",
+    "image": "/odoo/34600.jpg"
+  },
+  {
+    "id": 24923,
+    "slug": "connector-male-lpg-re7141m",
+    "name": "CONNECTOR - MALE LPG",
+    "ref": "RE7141M",
+    "description": null,
+    "category": "cilindros-gas",
+    "categoryLabel": "Cilindros y sistema GLP",
+    "image": "/odoo/24923.jpg"
+  },
+  {
+    "id": 27579,
+    "slug": "hose-lpg-ct91a6510700",
+    "name": "HOSE-LPG",
+    "ref": "CT91A6510700",
+    "description": null,
+    "category": "cilindros-gas",
+    "categoryLabel": "Cilindros y sistema GLP",
+    "image": "/odoo/27579.jpg"
+  },
+  {
+    "id": 25377,
+    "slug": "full-suspension-seat-adjustable-backrest-with-seatbelt-ty537",
+    "name": "FULL SUSPENSION SEAT, ADJUSTABLE BACKREST, WITH SEATBELT",
+    "ref": "TY53710-23620-71",
+    "description": null,
+    "category": "asientos",
+    "categoryLabel": "Asientos",
+    "image": "/odoo/25377.jpg"
+  },
+  {
+    "id": 35377,
+    "slug": "belt-v-tsa-hy2080581",
+    "name": "BELT - V",
+    "ref": "TSA/HY2080581",
+    "description": null,
+    "category": "accesorios",
+    "categoryLabel": "Accesorios",
+    "image": null
+  },
+  {
+    "id": 34213,
+    "slug": "cargador-24v-t5t24v160a",
+    "name": "CARGADOR 24V",
+    "ref": "T5T24V160A",
+    "description": null,
+    "category": "accesorios",
+    "categoryLabel": "Accesorios",
+    "image": null
+  },
+  {
+    "id": 35343,
+    "slug": "caster-spring-load-tsa-hy2044852",
+    "name": "CASTER - SPRING LOAD",
+    "ref": "TSA/HY2044852",
+    "description": null,
+    "category": "accesorios",
+    "categoryLabel": "Accesorios",
+    "image": null
+  },
+  {
+    "id": 35364,
+    "slug": "cover-tsa-cr123673",
+    "name": "COVER",
+    "ref": "TSA/CR123673",
+    "description": null,
+    "category": "accesorios",
+    "categoryLabel": "Accesorios",
+    "image": null
+  },
+  {
+    "id": 34091,
+    "slug": "cover-side-lh-dwa511155",
+    "name": "COVER - SIDE LH",
+    "ref": "DWA511155",
+    "description": null,
+    "category": "accesorios",
+    "categoryLabel": "Accesorios",
+    "image": null
+  },
+  {
+    "id": 34774,
+    "slug": "filter-transmission-tsa-cl2775440",
+    "name": "FILTER - TRANSMISSION",
+    "ref": "TSA/CL2775440",
+    "description": null,
+    "category": "accesorios",
+    "categoryLabel": "Accesorios",
+    "image": null
+  },
+  {
+    "id": 35202,
+    "slug": "gas-spring-outer-hood-prop-tsa-cl8068908",
+    "name": "GAS SPRING - OUTER HOOD PROP",
+    "ref": "TSA/CL8068908",
+    "description": null,
+    "category": "accesorios",
+    "categoryLabel": "Accesorios",
+    "image": null
+  },
+  {
+    "id": 34124,
+    "slug": "horn-110db-36-48v-4-1-2-in-dia-2-terminals-l-s-brackets-sy11",
+    "name": "HORN - 110DB - 36-48V - 4-1/2 IN DIA - 2 TERMINALS - L&S BRACKETS",
+    "ref": "SY110",
+    "description": null,
+    "category": "accesorios",
+    "categoryLabel": "Accesorios",
+    "image": null
+  },
+  {
+    "id": 33986,
+    "slug": "lamp-assembly-lh-combo-ty56640-30511-71",
+    "name": "LAMP ASSEMBLY - LH COMBO",
+    "ref": "TY56640-30511-71",
+    "description": null,
+    "category": "accesorios",
+    "categoryLabel": "Accesorios",
+    "image": null
+  },
+  {
+    "id": 33987,
+    "slug": "lamp-assembly-rh-combo-ty56630-30512-71",
+    "name": "LAMP ASSEMBLY - RH COMBO",
+    "ref": "TY56630-30512-71",
+    "description": null,
+    "category": "accesorios",
+    "categoryLabel": "Accesorios",
+    "image": null
+  },
+  {
+    "id": 34149,
+    "slug": "lever-directional-tsa-cl8003269",
+    "name": "LEVER - DIRECTIONAL",
+    "ref": "TSA/CL8003269",
+    "description": null,
+    "category": "accesorios",
+    "categoryLabel": "Accesorios",
+    "image": null
+  },
+  {
+    "id": 34881,
+    "slug": "master-ty47530-u2100-71",
+    "name": "MASTER",
+    "ref": "TY47530-U2100-71",
+    "description": null,
+    "category": "accesorios",
+    "categoryLabel": "Accesorios",
+    "image": null
+  }
+]

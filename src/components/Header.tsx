@@ -15,11 +15,12 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { label: "Inicio", href: "#hero" },
-    { label: "Equipos", href: "#equipos" },
-    { label: "Repuestos", href: "#repuestos" },
-    { label: "Nosotros", href: "#nosotros" },
-    { label: "Contacto", href: "#contacto" },
+    { label: "Inicio", href: "/#hero" },
+    { label: "Equipos", href: "/#equipos" },
+    { label: "Catálogo", href: "/catalogo" },
+    { label: "Repuestos", href: "/#repuestos" },
+    { label: "Nosotros", href: "/#nosotros" },
+    { label: "Contacto", href: "/#contacto" },
   ];
 
   return (
@@ -32,7 +33,7 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
         {/* Logo */}
-        <a href="#hero" className="flex items-center gap-2">
+        <a href="/#hero" className="flex items-center gap-2">
           <Image
             src="/logo-uniparts-white.png"
             alt="Uniparts Andina"

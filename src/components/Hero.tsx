@@ -28,16 +28,13 @@ export default function Hero() {
 
           {/* Main headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-tight mb-6 animate-fade-in-up">
-            Montacargas de litio y combustión y{" "}
-            <span className="text-brand-orange">
-              repuestos de alta calidad
-            </span>{" "}
-            para todas las marcas.
+            Tu operación{" "}
+            <span className="text-brand-orange">no puede parar</span>
           </h1>
 
           <p className="text-lg sm:text-xl text-white/70 mb-10 leading-relaxed max-w-xl animate-fade-in-up">
-            Montacargas de litio, repuestos originales y servicio técnico
-            especializado en toda Venezuela.
+            Montacargas de litio y combustión y repuestos de alta calidad para
+            todas las marcas.
           </p>
 
           {/* 3 CTAs for 3 different intents */}

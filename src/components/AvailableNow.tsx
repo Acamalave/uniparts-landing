@@ -1,47 +1,10 @@
-"use client";
-
-const whatsappNumber = "584144025540";
-
-const equipment = [
-  {
-    name: "Montacargas Contrabalanceado Litio",
-    brand: "Unilift",
-    capacity: "2.0 Ton",
-    type: "Eléctrico Litio",
-    image: "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?auto=format&fit=crop&w=600&q=80",
-    badge: "EN STOCK",
-    features: ["Batería de litio", "Carga rápida", "Bajo mantenimiento"],
-  },
-  {
-    name: "Apilador Eléctrico US20LI",
-    brand: "Unilift",
-    capacity: "2.0 Ton",
-    type: "Eléctrico",
-    image: "https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=600&q=80",
-    badge: "EN STOCK",
-    features: ["5m elevación", "Pasillo angosto", "Operación silenciosa"],
-  },
-  {
-    name: "Montacargas Three Wheel",
-    brand: "Unilift",
-    capacity: "1.5 - 2.0 Ton",
-    type: "Eléctrico Litio",
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80",
-    badge: "DISPONIBLE",
-    features: ["3 ruedas", "Máxima maniobrabilidad", "Interior/Exterior"],
-  },
-  {
-    name: "Transpaleta Eléctrica",
-    brand: "Unilift",
-    capacity: "2.5 Ton",
-    type: "Eléctrica",
-    image: "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=600&q=80",
-    badge: "EN STOCK",
-    features: ["Carga/descarga rápida", "Compacta", "Fácil operación"],
-  },
-];
+import Link from "next/link";
+import { featuredProducts, products } from "@/lib/catalog";
+import ProductCard from "@/components/ProductCard";
 
 export default function AvailableNow() {
+  const items = featuredProducts(8);
+
   return (
     <section id="equipos" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -54,84 +17,36 @@ export default function AvailableNow() {
               Equipos disponibles ahora
             </h2>
             <p className="text-gray-500 mt-2">
-              Listos para entrega. Consulta precios directamente.
+              Una muestra de nuestro inventario. Consulta precios directamente.
             </p>
           </div>
-          <a
-            href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hola, quiero conocer todo el catálogo de equipos disponibles")}`}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/catalogo"
             className="text-brand-orange hover:text-brand-orange-dark font-semibold text-sm flex items-center gap-1 shrink-0"
           >
             Ver catálogo completo
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
-          </a>
+          </Link>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {equipment.map((item, i) => (
-            <div
-              key={i}
-              className="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl hover:border-brand-orange/30 transition-all duration-300"
-            >
-              {/* Image */}
-              <div className="relative h-48 bg-gray-100 overflow-hidden">
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <span className="absolute top-3 left-3 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
-                  {item.badge}
-                </span>
-              </div>
-
-              {/* Content */}
-              <div className="p-5">
-                <p className="text-brand-orange text-xs font-semibold uppercase tracking-wide">
-                  {item.brand}
-                </p>
-                <h3 className="text-lg font-bold text-brand-dark mt-1 leading-tight">
-                  {item.name}
-                </h3>
-
-                <div className="flex items-center gap-3 mt-3 text-sm text-gray-500">
-                  <span className="bg-gray-100 px-2 py-0.5 rounded text-xs font-medium">
-                    {item.capacity}
-                  </span>
-                  <span className="bg-gray-100 px-2 py-0.5 rounded text-xs font-medium">
-                    {item.type}
-                  </span>
-                </div>
-
-                <ul className="mt-4 space-y-1">
-                  {item.features.map((f, j) => (
-                    <li key={j} className="text-sm text-gray-500 flex items-center gap-2">
-                      <svg className="w-3.5 h-3.5 text-brand-orange shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
-                      </svg>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-
-                <a
-                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Hola, me interesa el ${item.name} (${item.capacity}) que vi disponible en su página. ¿Me pueden enviar precio y condiciones?`)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-5 w-full bg-brand-dark hover:bg-brand-orange text-white font-semibold py-3 rounded-xl text-sm transition-all flex items-center justify-center gap-2"
-                >
-                  Consultar precio
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </a>
-              </div>
-            </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+          {items.map((p) => (
+            <ProductCard key={p.id} product={p} />
           ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <Link
+            href="/catalogo"
+            className="inline-flex items-center gap-2 bg-brand-orange hover:bg-brand-orange-dark text-white font-bold px-8 py-4 rounded-xl text-base transition-all"
+          >
+            Ver los {products.length} productos del catálogo
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
         </div>
       </div>
     </section>

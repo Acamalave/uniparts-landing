@@ -1,26 +1,41 @@
 import Link from "next/link";
 import { PageHeader, Kpi, Card, Badge, DemoNote } from "@/components/admin/ui";
-import { ORDERS, CUSTOMERS, metrics, usd, orderStateStyle, dataHealth } from "@/lib/admin/data";
+import { ORDERS, metrics, usd, orderStateStyle, dataHealth, pendingTasks } from "@/lib/admin/data";
+import { requireAdmin } from "@/lib/admin/session";
 
-export default function AdminHome() {
+const TZ = "America/Caracas";
+
+function saludo() {
+  const hora = parseInt(
+    new Date().toLocaleString("en-US", { hour: "numeric", hour12: false, timeZone: TZ }),
+    10
+  );
+  if (hora < 12) return "Buenos días";
+  if (hora < 19) return "Buenas tardes";
+  return "Buenas noches";
+}
+
+function fechaLarga() {
+  const s = new Date().toLocaleDateString("es-VE", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    timeZone: TZ,
+  });
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
+export default async function AdminHome() {
+  const user = await requireAdmin();
+  const nombre = user.nombre.split(" ")[0];
   const m = metrics();
   const health = dataHealth();
-  const cotizacionesAbiertas = CUSTOMERS.filter((c) => c.etapa === "cotizado").length;
   const recientes = ORDERS.slice(0, 5);
-
-  const tareas = [
-    { txt: `${m.leadsSinContactar} lead(s) sin contactar`, href: "/admin/clientes" },
-    { txt: `${cotizacionesAbiertas} cotización(es) abiertas por seguir`, href: "/admin/clientes" },
-    { txt: `${health.sinImagen} productos sin foto en el catálogo`, href: "/admin/salud" },
-    { txt: "3 conversaciones sin responder en el inbox", href: "/admin/inbox" },
-  ];
+  const tareas = pendingTasks();
 
   return (
     <div>
-      <PageHeader
-        title="Inicio"
-        subtitle="Resumen operativo de Uniparts Andina"
-      />
+      <PageHeader title={`${saludo()}, ${nombre}`} subtitle={fechaLarga()} />
       <DemoNote>
         Vista con <strong>datos de ejemplo</strong>. Al conectar Odoo (pedidos,
         clientes, ventas) y WhatsApp, estos números pasan a ser reales
@@ -69,10 +84,7 @@ export default function AdminHome() {
           <ul className="space-y-3">
             {tareas.map((t, i) => (
               <li key={i}>
-                <Link
-                  href={t.href}
-                  className="group flex items-start gap-3 text-sm text-gray-600 hover:text-brand-dark"
-                >
+                <Link href={t.href} className="group flex items-start gap-3 text-sm text-gray-600 hover:text-brand-dark">
                   <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-brand-orange shrink-0" />
                   <span className="group-hover:underline">{t.txt}</span>
                 </Link>

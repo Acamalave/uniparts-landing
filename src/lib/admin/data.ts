@@ -139,6 +139,19 @@ export function metrics() {
   return { ventasMes, pedidosMes, porEstado, leadsSinContactar, embudo, ventasPorMes };
 }
 
+/* ---------------- Tareas pendientes ("Para atender ahora") ---------------- */
+export function pendingTasks(): { txt: string; href: string }[] {
+  const m = metrics();
+  const h = dataHealth();
+  const cotizacionesAbiertas = CUSTOMERS.filter((c) => c.etapa === "cotizado").length;
+  return [
+    { txt: `${m.leadsSinContactar} lead(s) sin contactar`, href: "/admin/clientes" },
+    { txt: `${cotizacionesAbiertas} cotización(es) abiertas por seguir`, href: "/admin/clientes" },
+    { txt: `${h.sinImagen} productos sin foto en el catálogo`, href: "/admin/salud" },
+    { txt: "3 conversaciones sin responder en el inbox", href: "/admin/inbox" },
+  ];
+}
+
 /* ---------------- Salud de datos (REAL, del catálogo) ---------------- */
 export function dataHealth() {
   const total = products.length;

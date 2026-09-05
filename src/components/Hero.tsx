@@ -33,7 +33,7 @@ export default function Hero() {
       <div className="absolute inset-0 opacity-[0.14] mix-blend-overlay pointer-events-none" style={{ backgroundImage: GRAIN }} />
       <div
         aria-hidden
-        className="absolute -bottom-4 -left-2 right-0 select-none pointer-events-none font-display font-black text-[23vw] leading-none tracking-tight text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.07)] whitespace-nowrap uppercase"
+        className="absolute -bottom-4 -left-2 right-0 select-none pointer-events-none font-display font-black text-[23vw] leading-none tracking-tight text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.07)] whitespace-nowrap"
       >
         Uniparts
       </div>
@@ -43,7 +43,7 @@ export default function Hero() {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 pt-32 pb-24 lg:py-0 grid lg:grid-cols-12 gap-12 items-center">
         {/* Columna de texto */}
         <div className="lg:col-span-7 stagger-children">
-          <div className="inline-flex items-center gap-2 border border-brand-orange/40 bg-brand-orange/10 text-brand-orange px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide uppercase">
+          <div className="inline-flex items-center gap-2 border border-brand-orange/40 bg-brand-orange/10 text-brand-orange px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide">
             <span className="w-2 h-2 bg-brand-orange rounded-full animate-pulse" />
             Equipos nuevos y usados · Venezuela
           </div>
@@ -94,7 +94,7 @@ export default function Hero() {
             </Link>
           </div>
 
-          <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-xs sm:text-sm text-white/55 uppercase tracking-wider">
+          <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-xs sm:text-sm text-white/55 tracking-wide">
             <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-brand-orange" />Stock permanente</span>
             <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-brand-orange" />Litio y combustión</span>
             <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-brand-orange" />Sedes Valencia y Barcelona</span>

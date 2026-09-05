@@ -68,7 +68,7 @@ export default function HeroShowcase({
 
         {/* Etiqueta superior */}
         <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
-          <span className="inline-flex items-center gap-2 bg-brand-dark text-white text-[10px] font-semibold uppercase tracking-[0.2em] px-3 py-1.5 rounded-full">
+          <span className="inline-flex items-center gap-2 bg-brand-dark text-white text-[10px] font-semibold tracking-wide px-3 py-1.5 rounded-full">
             <span className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse" />
             En la tienda
           </span>
@@ -79,7 +79,7 @@ export default function HeroShowcase({
 
         {/* Pie con datos del producto */}
         <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-white via-white/95 to-transparent px-6 pt-12 pb-5">
-          <span className="inline-block text-[10px] font-semibold uppercase tracking-[0.25em] text-brand-orange">
+          <span className="inline-block text-[10px] font-semibold tracking-wide text-brand-orange">
             {cur.categoryLabel}
           </span>
           <p key={cur.id} className="font-display font-bold text-lg text-brand-dark leading-tight mt-1 line-clamp-2 animate-fade-in-up">
@@ -87,9 +87,9 @@ export default function HeroShowcase({
           </p>
           <div className="mt-2 flex items-center justify-between gap-3">
             {cur.price ? (
-              <p className="text-brand-dark leading-none">
-                <span className="text-[10px] font-semibold text-gray-400 mr-1">US$</span>
-                <span className="font-display font-extrabold text-lg">{cur.price}</span>
+              <p className="text-brand-dark leading-none tabular-nums tracking-tight">
+                <span className="text-xs text-gray-400 mr-1">US$</span>
+                <span className="text-base font-semibold">{cur.price}</span>
               </p>
             ) : cur.ref ? (
               <p className="text-xs text-gray-400">Ref. {cur.ref}</p>

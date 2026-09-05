@@ -95,7 +95,7 @@ export default function EquipmentFinder() {
     <section id="buscador" className="py-20 bg-brand-gray-light">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12">
-          <span className="text-brand-orange font-semibold text-sm uppercase tracking-widest">
+          <span className="text-brand-orange font-semibold text-sm tracking-wide">
             Exclusivo en Venezuela
           </span>
           <h2 className="text-3xl sm:text-4xl font-black text-brand-dark mt-2">

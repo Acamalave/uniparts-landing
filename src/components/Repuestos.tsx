@@ -47,7 +47,7 @@ export default function Repuestos() {
     <section id="repuestos" className="py-20 bg-brand-gray-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-14">
-          <span className="text-brand-orange font-semibold text-sm uppercase tracking-widest">
+          <span className="text-brand-orange font-semibold text-sm tracking-wide">
             Stock permanente
           </span>
           <h2 className="text-3xl sm:text-4xl font-black text-brand-dark mt-2">

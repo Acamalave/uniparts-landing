@@ -51,7 +51,7 @@ export default function WhyUs() {
         {/* Why us content */}
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="text-brand-orange font-semibold text-sm uppercase tracking-widest">
+            <span className="text-brand-orange font-semibold text-sm tracking-wide">
               Por qué elegirnos
             </span>
             <h2 className="text-3xl sm:text-4xl font-black text-brand-dark mt-2 mb-8">
@@ -103,7 +103,7 @@ export default function WhyUs() {
 
         {/* Industries served */}
         <div className="mt-20 text-center">
-          <p className="text-gray-400 text-sm font-medium uppercase tracking-widest mb-8">
+          <p className="text-gray-400 text-sm font-medium tracking-wide mb-8">
             Industrias que confían en nosotros
           </p>
           <div className="flex flex-wrap justify-center gap-8 text-gray-400">
@@ -117,7 +117,7 @@ export default function WhyUs() {
             ].map((industry) => (
               <span
                 key={industry}
-                className="text-sm font-semibold uppercase tracking-wide px-4 py-2 bg-gray-50 rounded-lg"
+                className="text-sm font-semibold tracking-wide px-4 py-2 bg-gray-50 rounded-lg"
               >
                 {industry}
               </span>

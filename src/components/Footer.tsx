@@ -23,7 +23,7 @@ export default function Footer() {
 
           {/* Equipos */}
           <div>
-            <h4 className="font-bold text-sm uppercase tracking-wider mb-4">
+            <h4 className="font-bold text-sm tracking-wide mb-4">
               Equipos
             </h4>
             <ul className="space-y-2 text-white/50 text-sm">
@@ -52,7 +52,7 @@ export default function Footer() {
 
           {/* Servicios */}
           <div>
-            <h4 className="font-bold text-sm uppercase tracking-wider mb-4">
+            <h4 className="font-bold text-sm tracking-wide mb-4">
               Servicios
             </h4>
             <ul className="space-y-2 text-white/50 text-sm">
@@ -81,7 +81,7 @@ export default function Footer() {
 
           {/* Contacto */}
           <div>
-            <h4 className="font-bold text-sm uppercase tracking-wider mb-4">
+            <h4 className="font-bold text-sm tracking-wide mb-4">
               Contacto
             </h4>
             <ul className="space-y-2 text-white/50 text-sm">

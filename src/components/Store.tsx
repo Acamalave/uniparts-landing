@@ -35,7 +35,7 @@ export default function Store() {
     <section id="tienda" className="relative py-24 bg-white overflow-hidden">
       <div
         aria-hidden
-        className="absolute -top-6 right-0 select-none pointer-events-none font-display font-black text-[14vw] leading-none tracking-tight text-transparent [-webkit-text-stroke:1px_rgba(26,26,26,0.06)] whitespace-nowrap uppercase"
+        className="absolute -top-6 right-0 select-none pointer-events-none font-display font-black text-[14vw] leading-none tracking-tight text-transparent [-webkit-text-stroke:1px_rgba(26,26,26,0.06)] whitespace-nowrap"
       >
         Tienda
       </div>
@@ -44,7 +44,7 @@ export default function Store() {
         {/* Encabezado */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
           <div className="max-w-2xl">
-            <span className="inline-flex items-center gap-3 text-brand-orange font-semibold text-xs uppercase tracking-[0.22em]">
+            <span className="inline-flex items-center gap-3 text-brand-orange font-semibold text-xs tracking-wide">
               <span className="w-8 h-px bg-brand-orange" />
               Nuestra tienda online
             </span>

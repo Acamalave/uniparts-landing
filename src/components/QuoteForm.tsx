@@ -84,7 +84,7 @@ export default function QuoteForm() {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Form */}
           <div>
-            <span className="text-brand-orange font-semibold text-sm uppercase tracking-widest">
+            <span className="text-brand-orange font-semibold text-sm tracking-wide">
               Cotización rápida
             </span>
             <h2 className="text-3xl sm:text-4xl font-black text-brand-dark mt-2 mb-3">

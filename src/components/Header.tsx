@@ -50,7 +50,7 @@ export default function Header() {
             <a
               key={link.href}
               href={link.href}
-              className="text-white/80 hover:text-brand-orange transition-colors text-sm font-medium tracking-wide uppercase"
+              className="text-white/80 hover:text-brand-orange transition-colors text-sm font-medium tracking-wide"
             >
               {link.label}
             </a>
@@ -74,7 +74,7 @@ export default function Header() {
             rel="noopener noreferrer"
             className="bg-brand-orange hover:bg-brand-orange-dark text-white font-semibold px-5 py-2.5 rounded-lg text-sm transition-all hover:scale-105 animate-pulse-glow"
           >
-            Cotizar Ahora
+            Cotizar ahora
           </a>
         </div>
 
@@ -102,7 +102,7 @@ export default function Header() {
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="block text-white/80 hover:text-brand-orange py-2 text-sm uppercase tracking-wide"
+              className="block text-white/80 hover:text-brand-orange py-2 text-sm tracking-wide"
             >
               {link.label}
             </a>
@@ -113,7 +113,7 @@ export default function Header() {
             rel="noopener noreferrer"
             className="block bg-brand-orange text-white text-center font-semibold px-5 py-3 rounded-lg text-sm mt-2"
           >
-            Cotizar Ahora
+            Cotizar ahora
           </a>
         </div>
       )}

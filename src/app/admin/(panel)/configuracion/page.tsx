@@ -1,13 +1,12 @@
 import { PageHeader, Card, Badge, DemoNote } from "@/components/admin/ui";
 import { roleBadge } from "@/lib/admin/config";
 import { listAdmins } from "@/lib/admin/users";
+import { metaStatus } from "@/lib/inbox/meta";
+import MetaSetup from "@/components/admin/MetaSetup";
 
-const integraciones = [
-  { nombre: "Odoo (ERP)", detalle: "grupobuco.odoo.com · catálogo, pedidos, clientes (API key)", estado: "conectado" },
-  { nombre: "Firebase", detalle: "Cotizaciones del formulario web", estado: "conectado" },
-  { nombre: "WhatsApp Cloud API (Meta)", detalle: "Inbox real · +58 414-4025540", estado: "pendiente" },
-  { nombre: "Login por usuario (roles)", detalle: "Firebase Auth + Firestore (admins)", estado: "conectado" },
-];
+export const dynamic = "force-dynamic";
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://uniparts-landing.vercel.app";
 
 const estadoStyle: Record<string, string> = {
   conectado: "bg-green-100 text-green-700",
@@ -25,7 +24,14 @@ function Field({ label, value }: { label: string; value: string }) {
 }
 
 export default async function ConfiguracionPage() {
-  const users = await listAdmins();
+  const [users, meta] = await Promise.all([listAdmins(), metaStatus()]);
+  const integraciones = [
+    { nombre: "Odoo (ERP)", detalle: "grupobuco.odoo.com · catálogo, pedidos, clientes (API key)", estado: "conectado" },
+    { nombre: "Firebase", detalle: "Pedidos de la tienda, cotizaciones, inbox y usuarios", estado: "conectado" },
+    { nombre: "Meta · Messenger e Instagram", detalle: "Inbox en vivo (webhook + Graph API)", estado: meta.configured && !meta.error ? "conectado" : meta.error ? "error" : "pendiente" },
+    { nombre: "WhatsApp Cloud API (Meta)", detalle: "Inbox real · +58 414-4025540", estado: "pendiente" },
+    { nombre: "Login por usuario (roles)", detalle: "Firebase Auth + Firestore (admins)", estado: "conectado" },
+  ];
   return (
     <div>
       <PageHeader title="Configuración" subtitle="Datos del negocio e integraciones" />
@@ -66,6 +72,11 @@ export default async function ConfiguracionPage() {
               </div>
             ))}
           </div>
+        </Card>
+
+        {/* Meta */}
+        <Card className="p-6 lg:col-span-2">
+          <MetaSetup status={meta} webhookUrl={`${SITE_URL}/api/meta/webhook`} />
         </Card>
 
         {/* Redes */}

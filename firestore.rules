@@ -1,0 +1,14 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Formulario público: solo permite crear cotizaciones
+    match /cotizaciones/{doc} {
+      allow create: if true;
+      allow read, update, delete: if false;
+    }
+    // Resto bloqueado al cliente; el admin usa Admin SDK (server-side)
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

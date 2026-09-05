@@ -1,5 +1,6 @@
 import { PageHeader, Card, Kpi } from "@/components/admin/ui";
 import { dataHealth } from "@/lib/admin/data";
+import SyncCatalogButton from "@/components/admin/SyncCatalogButton";
 
 export default function SaludPage() {
   const h = dataHealth();
@@ -24,6 +25,8 @@ export default function SaludPage() {
         title="Salud de datos"
         subtitle="Calidad del catálogo sincronizado desde Odoo (datos reales)"
       />
+
+      <SyncCatalogButton />
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <Kpi label="Productos totales" value={String(h.total)} accent="dark" />

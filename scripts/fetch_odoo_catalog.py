@@ -22,6 +22,7 @@ import xmlrpc.client, ssl, os, json, base64, re, hashlib, collections
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_OUT = os.path.join(ROOT, "src", "data", "catalog.json")
 PLACEHOLDERS_OUT = os.path.join(ROOT, "src", "data", "odoo-placeholders.json")
+META_OUT = os.path.join(ROOT, "src", "data", "catalog-meta.json")  # fecha/resumen de la última sincronización
 
 # Categorías de Odoo -> (clave, etiqueta, grupo). Cualquier otra cae en el mapeo genérico.
 CATEGORY_MAP = {
@@ -187,6 +188,15 @@ def main():
         json.dump(catalog, f, ensure_ascii=False, indent=1)
     with open(PLACEHOLDERS_OUT, "w") as f:
         json.dump({"image128": sorted(placeholders), "image512": ["3e49ee0ae59dfddf175c46cb05330a84"]}, f, indent=2)
+
+    from datetime import datetime, timezone
+    with open(META_OUT, "w") as f:
+        json.dump({
+            "syncedAt": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "total": len(catalog),
+            "conPrecio": sum(1 for p in catalog if p["price"] is not None),
+            "conFoto": sum(1 for p in catalog if p["image"]),
+        }, f, indent=2)
 
     by_group = collections.Counter(p["group"] for p in catalog)
     by_cat = collections.Counter(p["categoryLabel"] for p in catalog)

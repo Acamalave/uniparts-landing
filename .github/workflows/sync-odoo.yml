@@ -36,7 +36,8 @@ jobs:
 
       - name: Commit y push si cambió
         run: |
-          if git diff --quiet -- src/data; then
+          # catalog-meta.json cambia siempre (fecha); solo publicamos si cambió el catálogo real.
+          if git diff --quiet -- src/data/catalog.json src/data/odoo-placeholders.json; then
             echo "Sin cambios en el catálogo."
             exit 0
           fi

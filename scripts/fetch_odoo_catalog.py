@@ -8,7 +8,12 @@ No incluye precios (decisión: "Consultar precio" por WhatsApp).
 
 Uso:  python3 scripts/fetch_odoo_catalog.py
 """
-import xmlrpc.client, ssl, os, json, base64, re, sys
+import xmlrpc.client, ssl, os, json, base64, re, sys, hashlib
+
+# Hashes MD5 (de la imagen 512px) que son placeholders genéricos en Odoo y NO deben publicarse.
+PLACEHOLDER_IMAGE_HASHES = {
+    "3e49ee0ae59dfddf175c46cb05330a84",  # logo ML.PARTS
+}
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 IMG_DIR = os.path.join(ROOT, "public", "odoo")
@@ -87,10 +92,14 @@ def main():
             img = None
             if p.get("image_512"):
                 try:
+                    data = base64.b64decode(p["image_512"])
+                    # Odoo usa el logo de ML.PARTS como imagen genérica: no mostrarlo en Uniparts.
+                    if hashlib.md5(data).hexdigest() in PLACEHOLDER_IMAGE_HASHES:
+                        raise ValueError("imagen placeholder (logo ML.PARTS), se omite")
                     ext = ext_from_b64(p["image_512"])
                     fn = f"{p['id']}.{ext}"
                     with open(os.path.join(IMG_DIR, fn), "wb") as fh:
-                        fh.write(base64.b64decode(p["image_512"]))
+                        fh.write(data)
                     img = f"/odoo/{fn}"
                 except Exception as e:
                     print("  img err", p["id"], str(e)[:60])

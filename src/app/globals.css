@@ -62,8 +62,33 @@ body {
   }
 }
 
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(48px) rotate(2deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotate(0);
+  }
+}
+
+@keyframes growLine {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
 .animate-fade-in-up {
   animation: fadeInUp 0.7s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
+}
+
+.animate-grow-line {
+  transform-origin: left;
+  animation: growLine 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both;
 }
 
 .animate-slide-in-left {

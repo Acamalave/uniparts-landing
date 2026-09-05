@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Unbounded } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   weight: ["400", "500", "600", "700", "800", "900"],
+});
+
+// Fuente display para titulares: geométrica, ancha y moderna.
+const unbounded = Unbounded({
+  subsets: ["latin"],
+  variable: "--font-display",
+  weight: ["500", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -30,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="scroll-smooth">
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${unbounded.variable} font-sans antialiased`}>
         {children}
       </body>
     </html>

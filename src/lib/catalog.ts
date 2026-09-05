@@ -24,11 +24,24 @@ export const CATEGORIES: { key: string; label: string }[] = [
 
 export const WHATSAPP_NUMBER = "584144025540";
 
-/** Productos destacados para el landing: montacargas con foto + una transpaleta. */
-export function featuredProducts(limit = 8): Product[] {
-  const forklifts = products.filter((p) => p.category === "montacargas" && p.image);
-  const pallet = products.find((p) => p.category === "transpaletas" && p.image);
-  const list = [...forklifts];
-  if (pallet) list.splice(3, 0, pallet);
-  return list.slice(0, limit);
+/** Producto "portada" de una categoría (el primero con foto). */
+export function categoryCover(key: string): Product | undefined {
+  return (
+    products.find((p) => p.category === key && p.image) ??
+    products.find((p) => p.category === key)
+  );
 }
+
+/** Selección variada para la tienda: rota por categorías tomando productos con foto. */
+export function storeHighlights(limit = 8): Product[] {
+  const pools = CATEGORIES.map((c) => products.filter((p) => p.category === c.key && p.image));
+  const out: Product[] = [];
+  let i = 0;
+  while (out.length < limit && pools.some((l) => l.length > 0)) {
+    const pool = pools[i % pools.length];
+    if (pool.length) out.push(pool.shift()!);
+    i++;
+  }
+  return out;
+}
+

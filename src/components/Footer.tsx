@@ -28,22 +28,22 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-white/50 text-sm">
               <li>
-                <a href="#equipos" className="hover:text-brand-orange transition-colors">
+                <a href="/#tienda" className="hover:text-brand-orange transition-colors">
                   Montacargas de Litio
                 </a>
               </li>
               <li>
-                <a href="#equipos" className="hover:text-brand-orange transition-colors">
+                <a href="/#tienda" className="hover:text-brand-orange transition-colors">
                   Apiladores Eléctricos
                 </a>
               </li>
               <li>
-                <a href="#equipos" className="hover:text-brand-orange transition-colors">
+                <a href="/#tienda" className="hover:text-brand-orange transition-colors">
                   Transpaletas
                 </a>
               </li>
               <li>
-                <a href="#equipos" className="hover:text-brand-orange transition-colors">
+                <a href="/#tienda" className="hover:text-brand-orange transition-colors">
                   Pasillo Angosto
                 </a>
               </li>

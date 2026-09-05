@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
@@ -34,7 +35,10 @@ export default function CatalogoPage() {
             </p>
           </div>
 
-          <CatalogBrowser />
+          {/* useSearchParams (filtro ?grupo=) requiere Suspense en páginas estáticas */}
+          <Suspense fallback={<p className="text-gray-400 text-sm">Cargando catálogo…</p>}>
+            <CatalogBrowser />
+          </Suspense>
         </div>
       </main>
       <Footer />

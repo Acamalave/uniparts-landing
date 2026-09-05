@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import Store from "@/components/Store";
 import EquipmentFinder from "@/components/EquipmentFinder";
-import AvailableNow from "@/components/AvailableNow";
 import CompareOptions from "@/components/CompareOptions";
 import Repuestos from "@/components/Repuestos";
 import WhyUs from "@/components/WhyUs";
@@ -15,8 +15,8 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <Store />
         <EquipmentFinder />
-        <AvailableNow />
         <CompareOptions />
         <Repuestos />
         <WhyUs />

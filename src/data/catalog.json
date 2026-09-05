@@ -107,7 +107,7 @@
     "description": null,
     "category": "montacargas",
     "categoryLabel": "Montacargas",
-    "image": "/odoo/35269.jpg"
+    "image": null
   },
   {
     "id": 25120,
@@ -197,7 +197,7 @@
     "description": null,
     "category": "montacargas",
     "categoryLabel": "Montacargas",
-    "image": "/odoo/25127.jpg"
+    "image": null
   },
   {
     "id": 25128,
@@ -207,7 +207,7 @@
     "description": null,
     "category": "montacargas",
     "categoryLabel": "Montacargas",
-    "image": "/odoo/25128.jpg"
+    "image": null
   },
   {
     "id": 25129,
@@ -237,7 +237,7 @@
     "description": null,
     "category": "montacargas",
     "categoryLabel": "Montacargas",
-    "image": "/odoo/35293.jpg"
+    "image": null
   },
   {
     "id": 25123,
@@ -327,7 +327,7 @@
     "description": null,
     "category": "montacargas",
     "categoryLabel": "Montacargas",
-    "image": "/odoo/30002.jpg"
+    "image": null
   },
   {
     "id": 35246,
@@ -427,7 +427,7 @@
     "description": null,
     "category": "montacargas",
     "categoryLabel": "Montacargas",
-    "image": "/odoo/27995.jpg"
+    "image": null
   },
   {
     "id": 28183,
@@ -437,7 +437,7 @@
     "description": null,
     "category": "montacargas",
     "categoryLabel": "Montacargas",
-    "image": "/odoo/28183.jpg"
+    "image": null
   },
   {
     "id": 35294,
@@ -447,7 +447,7 @@
     "description": null,
     "category": "montacargas",
     "categoryLabel": "Montacargas",
-    "image": "/odoo/35294.jpg"
+    "image": null
   },
   {
     "id": 34379,
@@ -457,7 +457,7 @@
     "description": null,
     "category": "montacargas",
     "categoryLabel": "Montacargas",
-    "image": "/odoo/34379.jpg"
+    "image": null
   },
   {
     "id": 32009,
@@ -467,7 +467,7 @@
     "description": "REACH TRUCK UNILIFT 1.5 TON (PASILLO ANGOSTO) 7.5 M.A SERIAL 9322100013",
     "category": "montacargas",
     "categoryLabel": "Montacargas",
-    "image": "/odoo/32009.jpg"
+    "image": null
   },
   {
     "id": 29967,
@@ -477,7 +477,7 @@
     "description": null,
     "category": "montacargas",
     "categoryLabel": "Montacargas",
-    "image": "/odoo/29967.jpg"
+    "image": null
   },
   {
     "id": 32006,
@@ -517,7 +517,7 @@
     "description": null,
     "category": "transpaletas",
     "categoryLabel": "Transpaletas manuales",
-    "image": "/odoo/27496.jpg"
+    "image": null
   },
   {
     "id": 27497,
@@ -537,7 +537,7 @@
     "description": null,
     "category": "transpaletas",
     "categoryLabel": "Transpaletas manuales",
-    "image": "/odoo/27499.jpg"
+    "image": null
   },
   {
     "id": 33865,
@@ -547,7 +547,7 @@
     "description": null,
     "category": "transpaletas",
     "categoryLabel": "Transpaletas manuales",
-    "image": "/odoo/33865.jpg"
+    "image": null
   },
   {
     "id": 27500,
@@ -587,7 +587,7 @@
     "description": null,
     "category": "llantas",
     "categoryLabel": "Llantas y cauchos",
-    "image": "/odoo/27685.jpg"
+    "image": null
   },
   {
     "id": 27686,
@@ -597,7 +597,7 @@
     "description": null,
     "category": "llantas",
     "categoryLabel": "Llantas y cauchos",
-    "image": "/odoo/27686.jpg"
+    "image": null
   },
   {
     "id": 32074,
@@ -607,7 +607,7 @@
     "description": "INDUSTRIAL-TIRE SOLID 7.00-12 RIM 5.00 NON MARKING",
     "category": "llantas",
     "categoryLabel": "Llantas y cauchos",
-    "image": "/odoo/32074.jpg"
+    "image": null
   },
   {
     "id": 27655,
@@ -617,7 +617,7 @@
     "description": null,
     "category": "llantas",
     "categoryLabel": "Llantas y cauchos",
-    "image": "/odoo/27655.jpg"
+    "image": null
   },
   {
     "id": 27656,
@@ -627,7 +627,7 @@
     "description": null,
     "category": "llantas",
     "categoryLabel": "Llantas y cauchos",
-    "image": "/odoo/27656.jpg"
+    "image": null
   },
   {
     "id": 32001,
@@ -637,7 +637,7 @@
     "description": "CAUCHO SOLIDO 6.50-10 GOLDEN CROWN",
     "category": "llantas",
     "categoryLabel": "Llantas y cauchos",
-    "image": "/odoo/32001.jpg"
+    "image": null
   },
   {
     "id": 32075,
@@ -647,7 +647,7 @@
     "description": "INDUSTRIAL -TIRE SOLID 6.50-10 NO MARKING KBZ",
     "category": "llantas",
     "categoryLabel": "Llantas y cauchos",
-    "image": "/odoo/32075.jpg"
+    "image": null
   },
   {
     "id": 35225,
@@ -667,7 +667,7 @@
     "description": "CAUCHO SOLIDO 28X9-15 SOLID SUPER LUG TACO",
     "category": "llantas",
     "categoryLabel": "Llantas y cauchos",
-    "image": "/odoo/32069.jpg"
+    "image": null
   },
   {
     "id": 27654,
@@ -677,7 +677,7 @@
     "description": null,
     "category": "llantas",
     "categoryLabel": "Llantas y cauchos",
-    "image": "/odoo/27654.jpg"
+    "image": null
   },
   {
     "id": 34665,
@@ -697,7 +697,7 @@
     "description": "RIM 18X7-8 4.33-8 HUECOS",
     "category": "llantas",
     "categoryLabel": "Llantas y cauchos",
-    "image": "/odoo/32038.jpg"
+    "image": null
   },
   {
     "id": 32073,
@@ -707,7 +707,7 @@
     "description": "INDUSTRIAL TIRE SOLID 18X7-8 RIM 4.33 NON MARKING",
     "category": "llantas",
     "categoryLabel": "Llantas y cauchos",
-    "image": "/odoo/32073.jpg"
+    "image": null
   },
   {
     "id": 33461,
@@ -727,7 +727,7 @@
     "description": null,
     "category": "cilindros-gas",
     "categoryLabel": "Cilindros y sistema GLP",
-    "image": "/odoo/29694.jpg"
+    "image": null
   },
   {
     "id": 33413,
@@ -737,7 +737,7 @@
     "description": "HEAD - BARE 4G63 BARE 4G63 (LPG)",
     "category": "cilindros-gas",
     "categoryLabel": "Cilindros y sistema GLP",
-    "image": "/odoo/33413.jpg"
+    "image": null
   },
   {
     "id": 34600,
@@ -767,7 +767,7 @@
     "description": null,
     "category": "cilindros-gas",
     "categoryLabel": "Cilindros y sistema GLP",
-    "image": "/odoo/27579.jpg"
+    "image": null
   },
   {
     "id": 25377,

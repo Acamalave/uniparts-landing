@@ -1,4 +1,5 @@
 import { Product, WHATSAPP_NUMBER, fmtPrice } from "@/lib/catalog";
+import AddToCart from "@/components/shop/AddToCart";
 
 function IconWhatsApp({ className = "w-4 h-4" }: { className?: string }) {
   return (
@@ -16,9 +17,7 @@ export default function ProductCard({ product }: { product: Product }) {
   const hasPrice = product.price != null;
   const brand = product.brands?.[0];
   const ref = product.ref ? ` (Ref: ${product.ref})` : "";
-  const msg = hasPrice
-    ? `Hola, quiero pedir: ${product.name}${ref} — precio web US$ ${fmtPrice(product.price!)}`
-    : `Hola, quiero información y precio de: ${product.name}${ref}`;
+  const msg = `Hola, quiero información y precio de: ${product.name}${ref}`;
 
   return (
     <article className="group bg-white rounded-2xl border border-gray-200/80 overflow-hidden hover:shadow-lg hover:border-brand-orange/40 transition-all duration-300 flex flex-col">
@@ -75,17 +74,31 @@ export default function ProductCard({ product }: { product: Product }) {
             ) : (
               <p className="text-sm text-gray-500">Precio a consultar</p>
             )}
-            <span className="text-[11px] text-gray-400">Respuesta en minutos</span>
+            <span className="text-[11px] text-gray-400">{hasPrice ? "Entrega en todo el país" : "Respuesta en minutos"}</span>
           </div>
-          <a
-            href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-3 flex items-center justify-center gap-2 w-full bg-brand-dark hover:bg-brand-orange text-white font-semibold py-2.5 rounded-xl text-sm transition-colors"
-          >
-            <IconWhatsApp className="w-4 h-4" />
-            {hasPrice ? "Pedir por WhatsApp" : "Consultar precio"}
-          </a>
+          {hasPrice ? (
+            <AddToCart
+              className="mt-3"
+              item={{
+                id: product.id,
+                name: product.name,
+                ref: product.ref,
+                price: product.price!,
+                image: product.image,
+                categoryLabel: product.categoryLabel,
+              }}
+            />
+          ) : (
+            <a
+              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 flex items-center justify-center gap-2 w-full bg-brand-dark hover:bg-brand-orange text-white font-semibold py-2.5 rounded-xl text-sm transition-colors"
+            >
+              <IconWhatsApp className="w-4 h-4" />
+              Consultar precio
+            </a>
+          )}
         </div>
       </div>
     </article>

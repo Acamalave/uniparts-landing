@@ -32,7 +32,7 @@ export default function CatalogoPage() {
               en nuestros almacenes: montacargas y transpaletas, llantas y
               cauchos, y repuestos de motor, sistema eléctrico, dirección,
               frenos, mástil, hidráulico, transmisión y más. Busca por
-              referencia, modelo o marca y consulta el precio por WhatsApp.
+              referencia, modelo o marca, agrega al carrito y paga en minutos.
             </p>
           </div>
 

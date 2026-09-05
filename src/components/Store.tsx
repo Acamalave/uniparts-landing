@@ -53,8 +53,8 @@ export default function Store() {
               <span className="text-brand-orange">en un solo lugar</span>
             </h2>
             <p className="mt-4 text-gray-500 text-lg max-w-xl">
-              Equipos y repuestos con stock real en nuestros almacenes. Elige lo
-              que necesitas, consulta el precio y te respondemos por WhatsApp.
+              Equipos y repuestos con stock real en nuestros almacenes. Agrega lo
+              que necesitas al carrito y completa tu pedido en minutos.
             </p>
           </div>
           <span className="inline-flex items-center gap-2 self-start lg:self-auto rounded-full bg-brand-gray-light border border-gray-200 px-4 py-2 text-sm text-gray-600 shrink-0">

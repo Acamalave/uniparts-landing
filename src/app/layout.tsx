@@ -1,6 +1,9 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Barlow } from "next/font/google";
 import "./globals.css";
+import { CartProvider } from "@/lib/shop/cart";
+import CartDrawer from "@/components/shop/CartDrawer";
+import PwaRegister from "@/components/PwaRegister";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -29,6 +32,17 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_VE",
   },
+  manifest: "/manifest.webmanifest",
+  applicationName: "Uniparts Andina",
+  appleWebApp: { capable: true, statusBarStyle: "black-translucent", title: "Uniparts" },
+  formatDetection: { telephone: false },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#1A1A1A",
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
@@ -39,7 +53,11 @@ export default function RootLayout({
   return (
     <html lang="es" className="scroll-smooth">
       <body className={`${inter.variable} ${display.variable} font-sans antialiased`}>
-        {children}
+        <CartProvider>
+          {children}
+          <CartDrawer />
+          <PwaRegister />
+        </CartProvider>
       </body>
     </html>
   );

@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import CartButton from "@/components/shop/CartButton";
 
 const whatsappNumber = "584144025540";
 
@@ -76,12 +77,15 @@ export default function Header() {
           >
             Cotizar ahora
           </a>
+          <CartButton />
         </div>
 
-        {/* Mobile menu button */}
+        {/* Mobile: carrito + menú */}
+        <div className="md:hidden flex items-center gap-1">
+        <CartButton />
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden text-white p-2"
+          className="text-white p-2"
           aria-label="Menu"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -92,6 +96,7 @@ export default function Header() {
             )}
           </svg>
         </button>
+        </div>
       </div>
 
       {/* Mobile menu */}

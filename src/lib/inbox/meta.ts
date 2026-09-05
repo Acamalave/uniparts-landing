@@ -10,7 +10,46 @@ export const metaEnv = () => ({
   appSecret: process.env.META_APP_SECRET || "",
   pageToken: process.env.META_PAGE_ACCESS_TOKEN || "",
   pageId: process.env.META_PAGE_ID || "",
+  igAccountId: process.env.META_IG_ACCOUNT_ID || "",
+  /** URLs a las que se reenvían TODOS los eventos tal cual (la app de Meta es compartida con ML Parts). */
+  forwardUrls: (process.env.META_FORWARD_URL || "").split(",").map((s) => s.trim()).filter(Boolean),
 });
+
+/** IDs (página / cuenta de Instagram) cuyos eventos se guardan en ESTE inbox. Vacío = todos. */
+export const ownAssetIds = () => {
+  const e = metaEnv();
+  return new Set([e.pageId, e.igAccountId].filter(Boolean));
+};
+
+/**
+ * Reenvía el evento crudo (mismo cuerpo y misma firma) a los otros receptores de la app.
+ * Devuelve false si alguno falló, para que Meta reintente (nosotros somos idempotentes por mid).
+ */
+export async function forwardWebhook(rawBody: string, signature: string | null): Promise<boolean> {
+  const { forwardUrls } = metaEnv();
+  if (forwardUrls.length === 0) return true;
+  const results = await Promise.all(
+    forwardUrls.map(async (url) => {
+      for (let attempt = 0; attempt < 2; attempt++) {
+        try {
+          const res = await fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json", ...(signature ? { "X-Hub-Signature-256": signature } : {}) },
+            body: rawBody,
+            signal: AbortSignal.timeout(8000),
+            cache: "no-store",
+          });
+          if (res.ok) return true;
+          console.error(`[meta forward] ${url} -> ${res.status}`);
+        } catch (e) {
+          console.error(`[meta forward] ${url} falló:`, e instanceof Error ? e.message : e);
+        }
+      }
+      return false;
+    })
+  );
+  return results.every(Boolean);
+}
 
 export const metaConfigured = () => {
   const e = metaEnv();

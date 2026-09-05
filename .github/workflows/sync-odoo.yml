@@ -1,0 +1,48 @@
+name: Sincronizar catálogo desde Odoo
+
+# Corre todos los días a las 06:30 (hora de Venezuela, UTC-4) = 10:30 UTC,
+# después del cron nocturno de Odoo que recalcula company_display_price.
+# También se puede lanzar a mano desde la pestaña Actions ("Run workflow").
+on:
+  schedule:
+    - cron: "30 10 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-odoo
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Leer catálogo de Odoo (solo lectura)
+        env:
+          ODOO_URL: ${{ secrets.ODOO_URL }}
+          ODOO_DB: ${{ secrets.ODOO_DB }}
+          ODOO_USER: ${{ secrets.ODOO_USER }}
+          ODOO_API_KEY: ${{ secrets.ODOO_API_KEY }}
+          ODOO_COMPANY_ID: ${{ secrets.ODOO_COMPANY_ID }}
+        run: python3 scripts/fetch_odoo_catalog.py
+
+      - name: Commit y push si cambió
+        run: |
+          if git diff --quiet -- src/data; then
+            echo "Sin cambios en el catálogo."
+            exit 0
+          fi
+          git config user.name "uniparts-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add src/data
+          git commit -m "chore: sincronizar catálogo desde Odoo ($(date -u +'%Y-%m-%d %H:%M UTC'))"
+          git push
+          echo "Catálogo actualizado y publicado (Vercel despliega automáticamente)."

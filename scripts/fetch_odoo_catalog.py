@@ -61,13 +61,22 @@ PRICE_PLACEHOLDER_MAX = 1.0  # precios <= $1 son placeholders en Odoo, no precio
 
 
 def load_env():
+    """Variables de entorno del proceso (GitHub Actions) con .env.local como base (local)."""
     env = {}
-    with open(os.path.join(ROOT, ".env.local")) as f:
-        for line in f:
-            line = line.strip()
-            if line and not line.startswith("#") and "=" in line:
-                k, v = line.split("=", 1)
-                env[k.strip()] = v.strip()
+    path = os.path.join(ROOT, ".env.local")
+    if os.path.exists(path):
+        with open(path) as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith("#") and "=" in line:
+                    k, v = line.split("=", 1)
+                    env[k.strip()] = v.strip()
+    for k in ("ODOO_URL", "ODOO_DB", "ODOO_USER", "ODOO_API_KEY", "ODOO_PASSWORD", "ODOO_COMPANY_ID"):
+        if os.environ.get(k):
+            env[k] = os.environ[k]
+    missing = [k for k in ("ODOO_URL", "ODOO_DB", "ODOO_USER") if not env.get(k)]
+    if missing or not (env.get("ODOO_API_KEY") or env.get("ODOO_PASSWORD")):
+        raise SystemExit(f"Faltan variables de Odoo: {missing or ['ODOO_API_KEY']}")
     return env
 
 

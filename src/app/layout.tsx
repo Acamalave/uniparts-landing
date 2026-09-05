@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Unbounded } from "next/font/google";
+import { Inter, Barlow } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -8,11 +8,12 @@ const inter = Inter({
   weight: ["400", "500", "600", "700", "800", "900"],
 });
 
-// Fuente display para titulares: geométrica, ancha y moderna.
-const unbounded = Unbounded({
+// Fuente display para titulares (hero, tienda): industrial y moderna, tipo señalética.
+// Cambiar aquí la fuente la sustituye en todos los titulares (usan `font-display`).
+const display = Barlow({
   subsets: ["latin"],
   variable: "--font-display",
-  weight: ["500", "700", "800", "900"],
+  weight: ["600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -37,7 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="scroll-smooth">
-      <body className={`${inter.variable} ${unbounded.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${display.variable} font-sans antialiased`}>
         {children}
       </body>
     </html>

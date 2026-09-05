@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { IconForklift, IconGear } from "@/components/Icons";
-import { products } from "@/lib/catalog";
+import { products, storeHighlights } from "@/lib/catalog";
+import HeroShowcase from "@/components/HeroShowcase";
 
 // Grano sutil (SVG inline) para dar textura al fondo oscuro.
 const GRAIN =
@@ -10,6 +11,18 @@ export default function Hero() {
   const equipos = products.filter((p) => p.category === "montacargas" || p.category === "transpaletas").length;
   const repuestos = products.length - equipos;
 
+  // Productos reales (con foto) que rotan en el showcase del hero.
+  const showcase = storeHighlights(6)
+    .filter((p) => p.image)
+    .map((p) => ({
+      id: p.id,
+      name: p.name,
+      image: p.image as string,
+      categoryLabel: p.categoryLabel,
+      ref: p.ref,
+      href: `/catalogo?cat=${p.category}`,
+    }));
+
   return (
     <section
       id="hero"
@@ -18,35 +31,26 @@ export default function Hero() {
       {/* ---- Atmósfera ---- */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_78%_18%,rgba(250,108,24,0.38),transparent_55%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_8%_92%,rgba(250,108,24,0.14),transparent_50%)]" />
-      {/* Retícula técnica */}
       <div className="absolute inset-0 opacity-[0.06] bg-[linear-gradient(rgba(255,255,255,.7)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.7)_1px,transparent_1px)] bg-[size:72px_72px]" />
-      {/* Grano */}
-      <div
-        className="absolute inset-0 opacity-[0.14] mix-blend-overlay pointer-events-none"
-        style={{ backgroundImage: GRAIN }}
-      />
-      {/* Palabra fantasma */}
+      <div className="absolute inset-0 opacity-[0.14] mix-blend-overlay pointer-events-none" style={{ backgroundImage: GRAIN }} />
       <div
         aria-hidden
-        className="absolute -bottom-4 -left-2 right-0 select-none pointer-events-none font-display font-black text-[23vw] leading-none tracking-tighter text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.07)] whitespace-nowrap"
+        className="absolute -bottom-4 -left-2 right-0 select-none pointer-events-none font-display font-black text-[23vw] leading-none tracking-tight text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.07)] whitespace-nowrap uppercase"
       >
-        UNIPARTS
+        Uniparts
       </div>
-      {/* Cinta de seguridad */}
       <div className="absolute bottom-0 left-0 right-0 h-2 bg-[repeating-linear-gradient(135deg,#FA6C18_0_22px,#1A1A1A_22px_44px)]" />
 
       {/* ---- Contenido ---- */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 pt-32 pb-24 lg:py-0 grid lg:grid-cols-12 gap-12 items-center">
         {/* Columna de texto */}
         <div className="lg:col-span-7 stagger-children">
-          {/* Badge */}
           <div className="inline-flex items-center gap-2 border border-brand-orange/40 bg-brand-orange/10 text-brand-orange px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide uppercase">
             <span className="w-2 h-2 bg-brand-orange rounded-full animate-pulse" />
             Equipos nuevos y usados · Venezuela
           </div>
 
-          {/* Titular */}
-          <h1 className="mt-7 font-display font-extrabold leading-[0.98] tracking-tight text-4xl sm:text-5xl lg:text-6xl xl:text-7xl">
+          <h1 className="mt-7 font-display font-extrabold leading-[0.95] tracking-tight text-5xl sm:text-6xl lg:text-7xl xl:text-[5.75rem]">
             <span className="block">Tu operación</span>
             <span className="block text-brand-orange drop-shadow-[0_0_38px_rgba(250,108,24,0.45)]">
               no puede parar
@@ -54,7 +58,6 @@ export default function Hero() {
           </h1>
           <div className="mt-6 h-1 w-24 bg-brand-orange rounded-full animate-grow-line" />
 
-          {/* Subtítulo */}
           <p className="mt-6 text-lg sm:text-xl text-white/70 leading-relaxed max-w-xl text-balance">
             Montacargas de litio y combustión y repuestos de alta calidad para
             todas las marcas.
@@ -93,7 +96,6 @@ export default function Hero() {
             </Link>
           </div>
 
-          {/* Confianza */}
           <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-xs sm:text-sm text-white/55 uppercase tracking-wider">
             <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-brand-orange" />Stock permanente</span>
             <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-brand-orange" />Litio y combustión</span>
@@ -101,29 +103,13 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Panel visual (escritorio) */}
+        {/* Showcase animado de productos (escritorio) */}
         <div className="hidden lg:block lg:col-span-5 relative">
-          <div className="relative animate-slide-in-right">
-            <div className="absolute -inset-4 rounded-[2.2rem] bg-brand-orange/15 rotate-3" />
-            <div className="absolute -inset-1 rounded-[2rem] bg-gradient-to-br from-brand-orange/40 to-transparent -rotate-2" />
-            <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl [clip-path:polygon(0_0,100%_0,100%_90%,0_100%)]">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/equipo-combustion.jpg"
-                alt="Montacargas de combustión disponible en Uniparts Andina"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/85 via-brand-dark/10 to-transparent" />
-              <div className="absolute left-6 bottom-12 text-white">
-                <p className="text-[11px] uppercase tracking-[0.25em] text-white/70">Disponible ahora</p>
-                <p className="font-display font-bold text-xl mt-1">Montacargas de combustión</p>
-              </div>
-            </div>
-            {/* Dato flotante */}
-            <div className="absolute -right-6 top-10 bg-white text-brand-dark rounded-2xl px-5 py-4 shadow-2xl">
-              <p className="font-display font-extrabold text-3xl text-brand-orange leading-none">{products.length}+</p>
-              <p className="text-xs text-gray-500 mt-1.5">equipos y repuestos<br />en catálogo</p>
-            </div>
+          <HeroShowcase items={showcase} />
+          {/* Dato flotante */}
+          <div className="absolute -right-6 top-10 bg-white text-brand-dark rounded-2xl px-5 py-4 shadow-2xl animate-fade-in-up">
+            <p className="font-display font-extrabold text-3xl text-brand-orange leading-none">{products.length}+</p>
+            <p className="text-xs text-gray-500 mt-1.5">equipos y repuestos<br />en catálogo</p>
           </div>
         </div>
       </div>

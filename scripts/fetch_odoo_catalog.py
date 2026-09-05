@@ -14,6 +14,12 @@ import xmlrpc.client, ssl, os, json, base64, re, sys, hashlib
 PLACEHOLDER_IMAGE_HASHES = {
     "3e49ee0ae59dfddf175c46cb05330a84",  # logo ML.PARTS
 }
+# Productos cuya "foto" en Odoo es solo el logo de ML.PARTS (sin producto): se publican
+# SIN imagen. NOTA: las fotos reales con marca de agua de ML.PARTS SÍ se publican
+# (decisión del cliente: no hay problema con la marca de agua).
+EXCLUDE_IMAGE_PRODUCT_IDS = {
+    34600,  # imagen = logo ML.PARTS (variante distinta al hash genérico)
+}
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 IMG_DIR = os.path.join(ROOT, "public", "odoo")
@@ -96,6 +102,8 @@ def main():
                     # Odoo usa el logo de ML.PARTS como imagen genérica: no mostrarlo en Uniparts.
                     if hashlib.md5(data).hexdigest() in PLACEHOLDER_IMAGE_HASHES:
                         raise ValueError("imagen placeholder (logo ML.PARTS), se omite")
+                    if p["id"] in EXCLUDE_IMAGE_PRODUCT_IDS:
+                        raise ValueError("imagen con branding ML.PARTS, se omite")
                     ext = ext_from_b64(p["image_512"])
                     fn = f"{p['id']}.{ext}"
                     with open(os.path.join(IMG_DIR, fn), "wb") as fh:

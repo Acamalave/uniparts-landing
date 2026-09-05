@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { ComponentType } from "react";
-import { products, CATEGORIES, categoryCover, storeHighlights, countByGroup } from "@/lib/catalog";
+import { CATEGORIES, categoryCover, storeHighlights } from "@/lib/catalog";
 import ProductCard from "@/components/ProductCard";
 import {
   IconForklift, IconStacker, IconPallet, IconTire, IconHydraulic, IconGear, IconWrench,
@@ -22,8 +22,6 @@ const FALLBACK_ICON: Record<string, ComponentType<{ className?: string }>> = {
   mastil: IconChain,
   accesorios: IconWrench,
 };
-
-const fmt = (n: number) => n.toLocaleString("es-VE");
 
 export default function Store() {
   const highlights = storeHighlights(8);
@@ -55,14 +53,13 @@ export default function Store() {
               <span className="text-brand-orange">en un solo lugar</span>
             </h2>
             <p className="mt-4 text-gray-500 text-lg max-w-xl">
-              {fmt(countByGroup("equipos"))} equipos y {fmt(countByGroup("repuestos"))} repuestos
-              con stock real en nuestros almacenes. Elige lo que necesitas, consulta el
-              precio y te respondemos por WhatsApp.
+              Equipos y repuestos con stock real en nuestros almacenes. Elige lo
+              que necesitas, consulta el precio y te respondemos por WhatsApp.
             </p>
           </div>
           <span className="inline-flex items-center gap-2 self-start lg:self-auto rounded-full bg-brand-gray-light border border-gray-200 px-4 py-2 text-sm text-gray-600 shrink-0">
             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-            Inventario sincronizado desde Odoo · {fmt(products.length)} productos
+            Inventario real · sincronizado con nuestro sistema
           </span>
         </div>
 
@@ -91,7 +88,9 @@ export default function Store() {
                   )}
                 </div>
                 <p className="mt-4 font-display font-bold text-sm text-brand-dark leading-tight">{c.label}</p>
-                <p className="text-xs text-gray-500 mt-1">{fmt(c.count)} {c.count === 1 ? "producto" : "productos"}</p>
+                <p className="text-xs text-brand-orange font-semibold mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                  Ver productos →
+                </p>
                 <span className="absolute top-3 right-3 w-7 h-7 rounded-full bg-brand-orange text-white flex items-center justify-center opacity-0 translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all">
                   <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 6l6 6-6 6" /></svg>
                 </span>
@@ -101,7 +100,7 @@ export default function Store() {
         </div>
         {CATEGORIES.length > tiles.length && (
           <p className="mt-4 text-sm text-gray-500">
-            + {CATEGORIES.length - tiles.length} categorías más en el{" "}
+            Más categorías en el{" "}
             <Link href="/catalogo" className="text-brand-orange font-semibold hover:underline">catálogo completo</Link>.
           </p>
         )}
@@ -129,7 +128,7 @@ export default function Store() {
           <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-[repeating-linear-gradient(135deg,#FA6C18_0_18px,transparent_18px_36px)] opacity-70" />
           <div className="relative">
             <p className="font-display font-bold text-2xl sm:text-3xl leading-tight">
-              Explora los {fmt(products.length)} productos en stock
+              Explora toda la tienda
             </p>
             <p className="text-white/60 mt-2 max-w-xl">
               Busca por referencia, modelo o marca. Inventario real de Uniparts y respuesta en minutos.

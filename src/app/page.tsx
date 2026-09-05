@@ -2,7 +2,6 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Store from "@/components/Store";
 import EquipmentFinder from "@/components/EquipmentFinder";
-import CompareOptions from "@/components/CompareOptions";
 import Repuestos from "@/components/Repuestos";
 import WhyUs from "@/components/WhyUs";
 import QuoteForm from "@/components/QuoteForm";
@@ -17,7 +16,6 @@ export default function Home() {
         <Hero />
         <Store />
         <EquipmentFinder />
-        <CompareOptions />
         <Repuestos />
         <WhyUs />
         <QuoteForm />

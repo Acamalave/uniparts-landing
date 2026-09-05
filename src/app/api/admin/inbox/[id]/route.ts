@@ -31,6 +31,11 @@ export async function POST(req: Request, { params }: { params: { id: string } })
 
   const conversation = await getConversation(params.id);
   if (!conversation) return NextResponse.json({ error: "Conversación no encontrada." }, { status: 404 });
+  // Chat web: la respuesta se guarda y el widget la recoge por sondeo; el asesor toma el control (la IA se calla).
+  if (conversation.channel === "web") {
+    const message = await recordOutgoing({ conversationId: params.id, mid: "", text, by: session.email, status: "sent", handoff: true });
+    return NextResponse.json({ ok: true, message });
+  }
   if (conversation.channel !== "whatsapp" && !metaConfigured()) {
     return NextResponse.json({ error: "Messenger/Instagram no están conectados (faltan credenciales de Meta)." }, { status: 503 });
   }

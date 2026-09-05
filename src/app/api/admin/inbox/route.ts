@@ -14,7 +14,7 @@ export async function GET() {
     const conversations = await listConversations(150);
     return NextResponse.json({
       conversations,
-      channels: { messenger: metaConfigured(), instagram: metaConfigured(), whatsapp: false },
+      channels: { messenger: metaConfigured(), instagram: metaConfigured(), whatsapp: false, web: true },
       now: new Date().toISOString(),
     });
   } catch (e) {

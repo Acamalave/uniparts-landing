@@ -6,6 +6,7 @@ const canalDot: Record<Channel, string> = {
   whatsapp: "bg-green-500",
   instagram: "bg-pink-500",
   messenger: "bg-blue-500",
+  web: "bg-brand-orange",
 };
 
 const fmtTime = new Intl.DateTimeFormat("es-VE", { hour: "2-digit", minute: "2-digit", timeZone: "America/Caracas" });
@@ -20,7 +21,7 @@ type Filter = "todos" | Channel;
 /** Inbox unificado en vivo: lista de conversaciones + hilo + respuesta. Sondeo cada pocos segundos. */
 export default function InboxApp({ initialUnread = 0 }: { initialUnread?: number }) {
   const [convs, setConvs] = useState<Conversation[] | null>(null);
-  const [channels, setChannels] = useState<Record<Channel, boolean>>({ messenger: false, instagram: false, whatsapp: false });
+  const [channels, setChannels] = useState<Record<Channel, boolean>>({ messenger: false, instagram: false, whatsapp: false, web: true });
   const [filter, setFilter] = useState<Filter>("todos");
   const [q, setQ] = useState("");
   const [activeId, setActiveId] = useState<string | null>(null);
@@ -118,7 +119,7 @@ export default function InboxApp({ initialUnread = 0 }: { initialUnread?: number
             />
           </div>
           <div className="flex gap-1.5 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            {(["todos", "messenger", "instagram", "whatsapp"] as Filter[]).map((f) => (
+            {(["todos", "web", "messenger", "instagram", "whatsapp"] as Filter[]).map((f) => (
               <button
                 key={f}
                 onClick={() => setFilter(f)}
@@ -193,7 +194,7 @@ export default function InboxApp({ initialUnread = 0 }: { initialUnread?: number
             </svg>
             <p className="text-sm">Elige una conversación para responder.</p>
             <p className="text-xs mt-1">
-              {(["messenger", "instagram", "whatsapp"] as Channel[]).map((ch) => (
+              {(["web", "messenger", "instagram", "whatsapp"] as Channel[]).map((ch) => (
                 <span key={ch} className="inline-flex items-center gap-1 mr-3">
                   <span className={`w-2 h-2 rounded-full ${channels[ch] ? canalDot[ch] : "bg-gray-300"}`} />
                   {CHANNEL_LABEL[ch]} {channels[ch] ? "conectado" : "pendiente"}
@@ -250,7 +251,7 @@ export default function InboxApp({ initialUnread = 0 }: { initialUnread?: number
                     )}
                     <p className={`text-[10px] mt-1 ${m.direction === "out" && m.status !== "failed" ? "text-white/70" : "text-gray-400"}`}>
                       {fmtTime.format(new Date(m.at))}
-                      {m.direction === "out" && m.by && m.by !== "meta" ? ` · ${m.by.split("@")[0]}` : ""}
+                      {m.direction === "out" && m.by === "ia" ? " · Uni (IA)" : m.direction === "out" && m.by && m.by !== "meta" ? ` · ${m.by.split("@")[0]}` : ""}
                       {m.status === "failed" ? ` · no enviado: ${m.error}` : ""}
                     </p>
                   </div>

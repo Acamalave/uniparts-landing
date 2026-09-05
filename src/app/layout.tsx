@@ -4,6 +4,7 @@ import "./globals.css";
 import { CartProvider } from "@/lib/shop/cart";
 import CartDrawer from "@/components/shop/CartDrawer";
 import PwaRegister from "@/components/PwaRegister";
+import ChatWidget from "@/components/chat/ChatWidget";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -56,6 +57,7 @@ export default function RootLayout({
         <CartProvider>
           {children}
           <CartDrawer />
+          <ChatWidget />
           <PwaRegister />
         </CartProvider>
       </body>

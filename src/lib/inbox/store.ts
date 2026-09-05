@@ -23,6 +23,7 @@ function toConversation(id: string, d: FirebaseFirestore.DocumentData): Conversa
     lastAt: toIso(d.lastAt),
     lastDirection: d.lastDirection ?? "in",
     unread: d.unread ?? 0,
+    handoff: Boolean(d.handoff),
   };
 }
 
@@ -51,9 +52,12 @@ export async function recordIncoming(opts: {
   attachments: Attachment[];
   at: Date;
   direction?: "in" | "out";
+  /** false = lo atiende la IA, no cuenta como "sin leer" para el equipo (por defecto true para entrantes). */
+  countAsUnread?: boolean;
   profile?: () => Promise<{ name: string; username: string | null; avatar: string | null }>;
 }): Promise<boolean> {
   const direction = opts.direction ?? "in";
+  const countUnread = direction === "in" && (opts.countAsUnread ?? true);
   const convRef = conversations().doc(conversationId(opts.channel, opts.contactId));
   const msgRef = convRef.collection("messages").doc(opts.mid || `${Date.now()}`);
   const exists = (await msgRef.get()).exists;
@@ -82,7 +86,7 @@ export async function recordIncoming(opts: {
       lastMessage: preview(opts.text, opts.attachments),
       lastAt: opts.at,
       lastDirection: direction,
-      unread: direction === "in" ? FieldValue.increment(1) : 0,
+      ...(countUnread ? { unread: FieldValue.increment(1) } : direction === "out" ? { unread: 0 } : {}),
       updatedAt: FieldValue.serverTimestamp(),
     },
     { merge: true }
@@ -99,6 +103,8 @@ export async function recordOutgoing(opts: {
   by: string;
   status: "sent" | "failed";
   error?: string | null;
+  /** Chat web: marca/desmarca la toma de control por un asesor. Un agente humano (by ≠ "ia"/"meta") la activa. */
+  handoff?: boolean;
 }): Promise<Message> {
   const convRef = conversations().doc(opts.conversationId);
   const msgRef = convRef.collection("messages").doc(opts.mid || `out-${Date.now()}`);
@@ -107,7 +113,13 @@ export async function recordOutgoing(opts: {
   const batch = adminDb.batch();
   batch.set(msgRef, data);
   if (opts.status === "sent") {
-    batch.set(convRef, { lastMessage: opts.text, lastAt: at, lastDirection: "out", unread: 0, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
+    const isHuman = opts.by !== "ia" && opts.by !== "meta";
+    const handoff = opts.handoff ?? (isHuman ? true : undefined);
+    batch.set(
+      convRef,
+      { lastMessage: opts.text, lastAt: at, lastDirection: "out", unread: 0, updatedAt: FieldValue.serverTimestamp(), ...(handoff !== undefined ? { handoff } : {}) },
+      { merge: true }
+    );
   }
   await batch.commit();
   return toMessage(msgRef.id, data);

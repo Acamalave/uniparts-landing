@@ -96,6 +96,7 @@ export async function getProfile(channel: Channel, id: string): Promise<{ name: 
 /** Envía un texto por Messenger o Instagram (mismo endpoint de la Messenger Platform). */
 export async function sendText(channel: Channel, recipientId: string, text: string): Promise<{ mid: string }> {
   if (channel === "whatsapp") throw new Error("WhatsApp Cloud API aún no está conectado.");
+  if (channel === "web") throw new Error("El chat web no se envía por Meta.");
   const r = await graph<{ message_id?: string }>("me/messages", {
     method: "POST",
     headers: { "Content-Type": "application/json" },

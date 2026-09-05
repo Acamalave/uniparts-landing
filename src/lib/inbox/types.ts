@@ -1,10 +1,11 @@
 // Tipos del inbox unificado (Messenger · Instagram · WhatsApp).
-export type Channel = "messenger" | "instagram" | "whatsapp";
+export type Channel = "messenger" | "instagram" | "whatsapp" | "web";
 
 export const CHANNEL_LABEL: Record<Channel, string> = {
   messenger: "Messenger",
   instagram: "Instagram",
   whatsapp: "WhatsApp",
+  web: "Chat web",
 };
 
 export type Attachment = { type: string; url: string | null };
@@ -31,4 +32,6 @@ export type Conversation = {
   lastAt: string; // ISO
   lastDirection: "in" | "out";
   unread: number;
+  /** Chat web: un asesor humano tomó la conversación (la IA deja de responder). */
+  handoff?: boolean;
 };

@@ -186,14 +186,14 @@ export const getTopCustomers = unstable_cache(
       { orderby: "amount_total desc", limit }
     );
     const ids = grouped.map((g) => rel(g.partner_id)).filter(Boolean).map((p) => (p as [number, string])[0]);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const partners = ids.length
-      ? await searchRead<any>("res.partner", [["id", "in", ids]], ["name", "phone", "mobile", "email", "city"])
+    type PartnerRec = { id: number; name?: string; phone?: string; mobile?: string; email?: string; city?: string };
+    const partners: PartnerRec[] = ids.length
+      ? await searchRead<PartnerRec>("res.partner", [["id", "in", ids]], ["name", "phone", "mobile", "email", "city"])
       : [];
-    const byId = new Map(partners.map((p) => [p.id, p]));
+    const byId = new Map<number, PartnerRec>(partners.map((p) => [p.id, p]));
     return grouped.map((g) => {
       const p = rel(g.partner_id);
-      const d = (p && byId.get(p[0])) || {};
+      const d: Partial<PartnerRec> = (p && byId.get(p[0])) || {};
       return {
         id: p ? p[0] : 0,
         name: p ? p[1] : d.name || "—",

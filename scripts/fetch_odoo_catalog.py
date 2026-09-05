@@ -57,6 +57,7 @@ CATEGORY_MAP = {
 EQUIPO_CATEGS = [18, 21, 19, 22, 17, 20]
 UPANDINA_EXCLUDED = [19, 22, 18, 21, 1, 2, 17, 20]  # tal cual el filtro favorito `upandina.com`
 EXCLUDE_NAMES = ["(copia)", "(copy)", "no usar", "test", "prueba"]
+PRICE_PLACEHOLDER_MAX = 1.0  # precios <= $1 son placeholders en Odoo, no precios reales
 
 
 def load_env():
@@ -105,7 +106,10 @@ def main():
         k.setdefault("context", CTX)
         return models.execute_kw(db, uid, key, model, method, args, k)
 
-    fields = ["id", "name", "default_code", "description_sale", "categ_id", "qty_available", "product_brand_ids"]
+    # company_display_price = "Sales Price" aislado por compañía (precalculado por Odoo desde la
+    # lista de precios prioritaria de Uniparts). Es el precio público de la web (decisión del usuario).
+    fields = ["id", "name", "default_code", "description_sale", "categ_id", "qty_available",
+              "product_brand_ids", "company_display_price"]
     dom_equipos = ["&", ("sale_ok", "=", True), "&", ("qty_available", ">", 0), ("categ_id", "in", EQUIPO_CATEGS)]
     dom_upandina = ["&", ("type", "in", ["consu", "product"]), "&", ("sale_ok", "=", True), "&",
                     ("qty_available", ">", 0), ("categ_id", "not in", UPANDINA_EXCLUDED)]
@@ -145,6 +149,10 @@ def main():
             group = forced_group or cgroup
             h = thumb_hash.get(p["id"])
             has_photo = bool(h) and h not in placeholders
+            # Precio público (USD): solo repuestos con precio real. Los equipos (montacargas, etc.)
+            # nunca llevan precio y $1 / $0 son placeholders de Odoo -> "Consultar precio".
+            raw_price = float(p.get("company_display_price") or 0)
+            price = round(raw_price, 2) if group != "equipos" and raw_price > PRICE_PLACEHOLDER_MAX else None
             catalog.append({
                 "id": p["id"],
                 "slug": slugify((p.get("name") or "") + "-" + (p.get("default_code") or "")),
@@ -157,6 +165,7 @@ def main():
                 "brands": [brands[b] for b in (p.get("product_brand_ids") or []) if b in brands],
                 "qty": int(p.get("qty_available") or 0),
                 "image": f"/api/odoo-image/{p['id']}" if has_photo else None,
+                "price": price,
             })
 
     add(equipos, forced_group="equipos")
@@ -172,7 +181,8 @@ def main():
 
     by_group = collections.Counter(p["group"] for p in catalog)
     by_cat = collections.Counter(p["categoryLabel"] for p in catalog)
-    print(f"\nTOTAL: {len(catalog)} | por grupo: {dict(by_group)} | con foto real: {sum(1 for p in catalog if p['image'])}")
+    print(f"\nTOTAL: {len(catalog)} | por grupo: {dict(by_group)} | con foto real: {sum(1 for p in catalog if p['image'])}"
+          f" | con precio: {sum(1 for p in catalog if p['price'] is not None)}")
     for c, n in by_cat.most_common():
         print(f"  {n:>5}  {c}")
     print("JSON ->", DATA_OUT)

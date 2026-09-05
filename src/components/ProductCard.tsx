@@ -1,9 +1,10 @@
-import { Product, WHATSAPP_NUMBER } from "@/lib/catalog";
+import { Product, WHATSAPP_NUMBER, fmtPrice } from "@/lib/catalog";
 
 export default function ProductCard({ product }: { product: Product }) {
-  const msg = `Hola, quiero información y precio de: ${product.name}${
-    product.ref ? ` (Ref: ${product.ref})` : ""
-  }`;
+  const hasPrice = product.price != null;
+  const msg = hasPrice
+    ? `Hola, quiero pedir: ${product.name}${product.ref ? ` (Ref: ${product.ref})` : ""} — precio web US$ ${fmtPrice(product.price!)}`
+    : `Hola, quiero información y precio de: ${product.name}${product.ref ? ` (Ref: ${product.ref})` : ""}`;
 
   return (
     <div className="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl hover:border-brand-orange/30 transition-all duration-300 flex flex-col">
@@ -46,14 +47,32 @@ export default function ProductCard({ product }: { product: Product }) {
         </div>
         <h3 className="text-sm font-bold text-brand-dark mt-1 leading-snug line-clamp-2">{product.name}</h3>
         {product.description && <p className="text-xs text-gray-500 mt-1.5 line-clamp-2">{product.description}</p>}
+
+        {/* Precio (company_display_price de Odoo) o "a consultar" */}
+        <div className="mt-auto pt-4">
+          {hasPrice ? (
+            <p className="flex items-baseline gap-1.5" data-price>
+              <span className="text-[11px] font-semibold text-gray-400">US$</span>
+              <span className="font-display font-extrabold text-2xl text-brand-dark leading-none tracking-tight">
+                {fmtPrice(product.price!)}
+              </span>
+            </p>
+          ) : (
+            <p className="text-xs text-gray-400">Precio a consultar</p>
+          )}
+        </div>
         <a
           href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-auto pt-4"
+          className="pt-3"
         >
-          <span className="flex items-center justify-center gap-2 w-full bg-brand-dark hover:bg-brand-orange text-white font-semibold py-2.5 rounded-xl text-sm transition-all">
-            Consultar precio
+          <span
+            className={`flex items-center justify-center gap-2 w-full text-white font-semibold py-2.5 rounded-xl text-sm transition-all ${
+              hasPrice ? "bg-brand-orange hover:bg-brand-orange-dark" : "bg-brand-dark hover:bg-brand-orange"
+            }`}
+          >
+            {hasPrice ? "Pedir por WhatsApp" : "Consultar precio"}
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { IconForklift, IconGear } from "@/components/Icons";
-import { storeHighlights } from "@/lib/catalog";
+import { storeHighlights, fmtPrice } from "@/lib/catalog";
 import HeroShowcase from "@/components/HeroShowcase";
 
 // Grano sutil (SVG inline) para dar textura al fondo oscuro.
@@ -18,6 +18,7 @@ export default function Hero() {
       categoryLabel: p.categoryLabel,
       ref: p.ref,
       href: `/catalogo?cat=${p.category}`,
+      price: p.price != null ? fmtPrice(p.price) : null,
     }));
 
   return (

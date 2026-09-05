@@ -14,7 +14,12 @@ export type Product = {
   brands: string[];
   qty: number;
   image: string | null; // /api/odoo-image/<id> (servida bajo demanda desde Odoo) o null
+  price: number | null; // USD, campo company_display_price de Odoo; null = "Consultar precio"
 };
+
+/** Formatea un precio en USD con convención local: 1.234,50 */
+export const fmtPrice = (n: number) =>
+  new Intl.NumberFormat("es-VE", { minimumFractionDigits: 0, maximumFractionDigits: 2 }).format(n);
 
 export const products = data as Product[];
 

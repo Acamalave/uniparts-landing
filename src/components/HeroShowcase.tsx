@@ -9,6 +9,7 @@ export type ShowcaseItem = {
   categoryLabel: string;
   ref: string | null;
   href: string;
+  price: string | null; // ya formateado (ej. "1.234,50") o null = a consultar
 };
 
 /** Showcase animado del hero: rota productos reales con transición suave. */
@@ -85,7 +86,16 @@ export default function HeroShowcase({
             {cur.name}
           </p>
           <div className="mt-2 flex items-center justify-between gap-3">
-            {cur.ref ? <p className="text-xs text-gray-400">Ref. {cur.ref}</p> : <span />}
+            {cur.price ? (
+              <p className="text-brand-dark leading-none">
+                <span className="text-[10px] font-semibold text-gray-400 mr-1">US$</span>
+                <span className="font-display font-extrabold text-lg">{cur.price}</span>
+              </p>
+            ) : cur.ref ? (
+              <p className="text-xs text-gray-400">Ref. {cur.ref}</p>
+            ) : (
+              <span />
+            )}
             <Link href={cur.href} className="text-xs font-semibold text-brand-orange hover:underline whitespace-nowrap">
               Ver en la tienda →
             </Link>

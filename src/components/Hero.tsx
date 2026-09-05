@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { IconForklift, IconGear } from "@/components/Icons";
-import { products, storeHighlights } from "@/lib/catalog";
+import { products, storeHighlights, countByGroup } from "@/lib/catalog";
 import HeroShowcase from "@/components/HeroShowcase";
 
 // Grano sutil (SVG inline) para dar textura al fondo oscuro.
@@ -8,8 +8,9 @@ const GRAIN =
   "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
 
 export default function Hero() {
-  const equipos = products.filter((p) => p.category === "montacargas" || p.category === "transpaletas").length;
-  const repuestos = products.length - equipos;
+  const fmt = (n: number) => n.toLocaleString("es-VE");
+  const equipos = countByGroup("equipos");
+  const repuestos = countByGroup("repuestos");
 
   // Productos reales (con foto) que rotan en el showcase del hero.
   const showcase = storeHighlights(6)
@@ -73,7 +74,7 @@ export default function Hero() {
               <span className="relative text-white/95"><IconForklift className="w-9 h-9" /></span>
               <span className="relative block mt-5 font-display font-bold text-2xl">Equipos</span>
               <span className="relative block mt-1 text-sm text-white/85">
-                Montacargas, apiladores y transpaletas · {equipos} en catálogo
+                Montacargas, apiladores y transpaletas · {fmt(equipos)} en stock
               </span>
               <span className="absolute top-5 right-5 w-9 h-9 rounded-full bg-white/15 flex items-center justify-center transition-transform group-hover:translate-x-1">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 6l6 6-6 6" /></svg>
@@ -88,7 +89,7 @@ export default function Hero() {
               <span className="relative text-brand-orange"><IconGear className="w-9 h-9" /></span>
               <span className="relative block mt-5 font-display font-bold text-2xl">Repuestos</span>
               <span className="relative block mt-1 text-sm text-white/70">
-                Llantas, cilindros GLP, asientos y accesorios · {repuestos} en catálogo
+                Llantas, motor, eléctrico, frenos, hidráulico… · {fmt(repuestos)} en stock
               </span>
               <span className="absolute top-5 right-5 w-9 h-9 rounded-full bg-white/10 flex items-center justify-center transition-transform group-hover:translate-x-1 group-hover:bg-brand-orange">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 6l6 6-6 6" /></svg>
@@ -108,8 +109,8 @@ export default function Hero() {
           <HeroShowcase items={showcase} />
           {/* Dato flotante */}
           <div className="absolute -right-6 top-10 bg-white text-brand-dark rounded-2xl px-5 py-4 shadow-2xl animate-fade-in-up">
-            <p className="font-display font-extrabold text-3xl text-brand-orange leading-none">{products.length}+</p>
-            <p className="text-xs text-gray-500 mt-1.5">equipos y repuestos<br />en catálogo</p>
+            <p className="font-display font-extrabold text-3xl text-brand-orange leading-none">{fmt(products.length)}</p>
+            <p className="text-xs text-gray-500 mt-1.5">productos con<br />stock real</p>
           </div>
         </div>
       </div>

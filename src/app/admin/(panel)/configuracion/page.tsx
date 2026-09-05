@@ -3,7 +3,7 @@ import { roleBadge } from "@/lib/admin/config";
 import { listAdmins } from "@/lib/admin/users";
 
 const integraciones = [
-  { nombre: "Odoo (ERP)", detalle: "Catálogo, pedidos, clientes, stock", estado: "pendiente" },
+  { nombre: "Odoo (ERP)", detalle: "grupobuco.odoo.com · catálogo, pedidos, clientes (API key)", estado: "conectado" },
   { nombre: "Firebase", detalle: "Cotizaciones del formulario web", estado: "conectado" },
   { nombre: "WhatsApp Cloud API (Meta)", detalle: "Inbox real · +58 414-4025540", estado: "pendiente" },
   { nombre: "Login por usuario (roles)", detalle: "Firebase Auth + Firestore (admins)", estado: "conectado" },

@@ -9,9 +9,9 @@ import { products } from "@/lib/catalog";
 export const metadata: Metadata = {
   title: "Catálogo de montacargas, repuestos y llantas | Uniparts Andina",
   description:
-    "Catálogo de montacargas de litio y combustión (nuevos y usados), transpaletas manuales Megalift, llantas y cauchos (6.00-9, 7.00-12, 6.50-10), cilindros de gas GLP, asientos y accesorios en Venezuela.",
+    "Más de 2.500 repuestos y equipos para montacargas con stock real en Venezuela: motor, sistema eléctrico, dirección, frenos, mástil, hidráulico, transmisión, filtros, llantas y cauchos (6.00-9, 7.00-12, 6.50-10), cilindros GLP, montacargas y transpaletas.",
   keywords:
-    "catálogo montacargas, montacargas usados Venezuela, transpaleta manual Megalift, llantas montacargas 6.00-9 7.00-12 6.50-10, cilindro de gas GLP montacargas, asientos montacargas, repuestos montacargas",
+    "repuestos montacargas Venezuela, catálogo repuestos montacargas, llantas montacargas 6.00-9 7.00-12 6.50-10, repuestos Toyota Hyster Clark montacargas, montacargas Unilift, transpaleta manual, cilindro GLP montacargas, filtros montacargas",
 };
 
 export default function CatalogoPage() {
@@ -28,10 +28,11 @@ export default function CatalogoPage() {
               Equipos, repuestos y llantas
             </h1>
             <p className="text-gray-500 mt-3 max-w-2xl">
-              {products.length} productos disponibles: montacargas nuevos y
-              usados, transpaletas manuales Megalift, llantas y cauchos,
-              cilindros de gas GLP, asientos y accesorios. Consulta precio y
-              disponibilidad por WhatsApp.
+              {products.length.toLocaleString("es-VE")} productos con stock real
+              en nuestros almacenes: montacargas y transpaletas, llantas y
+              cauchos, y repuestos de motor, sistema eléctrico, dirección,
+              frenos, mástil, hidráulico, transmisión y más. Busca por
+              referencia, modelo o marca y consulta el precio por WhatsApp.
             </p>
           </div>
 

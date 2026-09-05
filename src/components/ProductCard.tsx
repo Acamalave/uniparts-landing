@@ -7,7 +7,7 @@ export default function ProductCard({ product }: { product: Product }) {
 
   return (
     <div className="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl hover:border-brand-orange/30 transition-all duration-300 flex flex-col">
-      {/* Imagen */}
+      {/* Imagen (servida bajo demanda desde Odoo) */}
       <div className="relative aspect-[4/3] bg-gray-50 flex items-center justify-center overflow-hidden">
         {product.image ? (
           // eslint-disable-next-line @next/next/no-img-element
@@ -28,23 +28,24 @@ export default function ProductCard({ product }: { product: Product }) {
         <span className="absolute top-3 left-3 bg-brand-dark/80 backdrop-blur text-white text-[10px] font-semibold uppercase tracking-wide px-2.5 py-1 rounded-full">
           {product.categoryLabel}
         </span>
+        {product.qty > 0 && (
+          <span className="absolute top-3 right-3 bg-green-500 text-white text-[10px] font-bold px-2 py-1 rounded-full flex items-center gap-1">
+            <span className="w-1.5 h-1.5 bg-white rounded-full" />
+            En stock
+          </span>
+        )}
       </div>
 
       {/* Contenido */}
       <div className="p-5 flex flex-col flex-1">
-        {product.ref && (
-          <p className="text-brand-orange text-xs font-semibold tracking-wide">
-            {product.ref}
-          </p>
-        )}
-        <h3 className="text-sm font-bold text-brand-dark mt-1 leading-snug line-clamp-2">
-          {product.name}
-        </h3>
-        {product.description && (
-          <p className="text-xs text-gray-500 mt-1.5 line-clamp-2">
-            {product.description}
-          </p>
-        )}
+        <div className="flex items-center justify-between gap-2">
+          {product.ref && <p className="text-brand-orange text-xs font-semibold tracking-wide truncate">{product.ref}</p>}
+          {(product.brands?.length ?? 0) > 0 && (
+            <p className="text-[10px] text-gray-400 uppercase tracking-wide shrink-0">{product.brands.slice(0, 2).join(" · ")}</p>
+          )}
+        </div>
+        <h3 className="text-sm font-bold text-brand-dark mt-1 leading-snug line-clamp-2">{product.name}</h3>
+        {product.description && <p className="text-xs text-gray-500 mt-1.5 line-clamp-2">{product.description}</p>}
         <a
           href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`}
           target="_blank"
